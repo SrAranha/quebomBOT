@@ -15,7 +15,7 @@ for (const file of commandFiles) {
 
 // initializing
 client.once('ready', () => {
-    console.log('QueBomBOT is now online! \n' +
+    console.log('\x1b[32m%s\x1b[0m','QueBomBOT is now online! \n' +
         'Avaliable commands: ' + commandFiles);
 });
 client.login(botToken);
@@ -35,7 +35,7 @@ client.on('message', message => {
     try {
         command.execute(message, args);
     } catch (error) {
-        console.error(error);
+        console.error('\x1b[31m%s\x1b[0m', error);
         message.reply('Houve um erro ao executar o comando!')
     }
 });
