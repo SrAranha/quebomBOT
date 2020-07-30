@@ -1,2 +1,4 @@
 // this is supposed to ignore all json archives
 *.json
+// and this is to ignore config.json (i hope so)
+config.json
