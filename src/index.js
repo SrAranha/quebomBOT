@@ -16,7 +16,7 @@ for (const file of commandFiles) {
 // initializing
 client.once('ready', () => {
     console.log('QueBomBOT is now online! \n' +
-        'Avaliable commands: ' + commandFiles, 'color: #25CA21');
+        'Avaliable commands: ' + commandFiles);
 });
 client.login(botToken);
 
