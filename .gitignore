@@ -1,1 +1,2 @@
-./src/config.json
+// this is supposed to ignore all json archives
+*.json
