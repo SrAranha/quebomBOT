@@ -4,7 +4,7 @@ module.exports = {
     execute(message, args) {
         const taggedUser = message.mentions.users.first();
 
-        if (!taggedUser) return message.channel.send(message.author.displayAvatarURL());
-        else if (message.channel.send(taggedUser.displayAvatarURL()));
+        if (!taggedUser) return message.channel.send(message.author.displayAvatarURL()); //Send the author's avatar
+        else if (message.channel.send(taggedUser.displayAvatarURL())); //Send the mentioned user's avatar
     }
 }
