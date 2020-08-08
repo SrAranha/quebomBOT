@@ -5,10 +5,9 @@ module.exports = {
         function getRoleFromMention(mention) {
             if (!mention)
                 console.log('No role was passed');
-        
+
             if (mention.startsWith('<@&') && mention.endsWith('>')) {
                 mention = mention.slice(3, -1);
-        
                 return message.guild.roles.cache.get(mention);
             }
         }
@@ -25,12 +24,20 @@ module.exports = {
         //Reaction Collector filter
         const filter = (reaction, user) => { return reaction.emoji.name === `${roleEmoji}` /*&& user.id === message.author.id*/; };
 
-        //Reaction Collector
+        //Reaction Collector #3 (thanks to https://stackoverflow.com/users/10046076/daemon-beast i've done it!)
         message.channel.messages.fetch(`${messageId}`)
-            .then(msg => msg.awaitReactions(filter, { max: 4, time: 20000, errors: ['time'] })
-                .then(collected => console.log(collected.size))
-	            .catch(collected => {
-	            	console.log(`After a minute, only ${collected.size} out of 4 reacted. [ReactionCollector#2]`);
-	            }));
+            .then(msg => {
+                const collector = msg.createReactionCollector((reaction, user) => !user.bot);
+            
+                collector.on('collect', (reaction, user) => {
+                    const member = reaction.message.guild.members.cache.find(member => member.id === user.id);
+                    
+                        switch (reaction.emoji.name) {
+                            case `${roleEmoji}`:
+                                member.roles.add(reaction.message.guild.roles.cache.find(role => role.name === `${roleToGive.name}`));
+                            break;
+                        }
+                });
+            });
     }
 }
