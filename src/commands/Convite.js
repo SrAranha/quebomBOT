@@ -1,7 +1,7 @@
 module.exports = {
     name: 'convite',
     description: 'Send the invite for QueBom Oficial channel',
-    execute(message, args) {
+    execute(message) {
         const inviteEmbed = {
             color: '#df8edd',
             title: 'Convite para o servidor do QueBom Oficial',
@@ -16,6 +16,9 @@ module.exports = {
                 },
             ],
             timestamp: new Date(),
+            footer: {
+                text: 'Chama todo mundo ai namoral!'
+            }
         };
         message.channel.send({embed: inviteEmbed});
     }

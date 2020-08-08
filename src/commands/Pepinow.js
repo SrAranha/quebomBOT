@@ -1,7 +1,7 @@
 module.exports = {
     name: 'pepinow',
     description: 'Pepinow\'s info',
-    execute(message, args) {
+    execute(message) {
         const profileEmbed = {
             color: '#2F6D32',
             title: 'Onde encontrar o Pepinow',

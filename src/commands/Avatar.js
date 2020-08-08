@@ -1,7 +1,7 @@
 module.exports = {
     name: 'avatar',
     description: 'Get user\'s avatar if not specified',
-    execute(message, args) {
+    execute(message) {
         const taggedUser = message.mentions.users.first();
 
         if (!taggedUser) return message.channel.send(message.author.displayAvatarURL()); //Send the author's avatar

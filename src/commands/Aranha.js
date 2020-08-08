@@ -1,9 +1,7 @@
-const Discord = require("discord.js");
-
 module.exports = {
     name: 'aranha',
     description: 'Aranha\'s info',
-    execute(message, args) {
+    execute(message) {
         const profileEmbed = {
             color: '#7000BF',
             title: 'Onde encontrar o Aranha',

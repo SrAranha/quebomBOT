@@ -1,7 +1,7 @@
 module.exports = {
     name: 'marvin',
     description: 'Marvin\'s info',
-    execute(message, args) {
+    execute(message) {
         const profileEmbed = {
             color: '#1B90C6',
             title: 'Onde encontrar o Marvin',
@@ -32,15 +32,3 @@ module.exports = {
         message.channel.send({ embed: profileEmbed });
     }
 }
-/*Discord.MessageEmbed()
-.setColor('#1B90C6')
-.setTitle('Marvin')
-.setAuthor('QueBomBOT', '../assets/qbomBOT_Logo')
-.setDescription('Onde encontrar o Marvin')
-.setThumbnail('')
-.addFields(
-    { name: 'Twitch', value: 'https://bit.ly/3gdxuXs'},
-    { name: 'Twitter', value: 'https://bit.ly/2Xa0WWT'},
-    { name: 'Instagram', value: 'https://bit.ly/30dwaP4'},
-    { name: 'Youtube', value: 'https://bit.ly/3373pFr'},
-)*/

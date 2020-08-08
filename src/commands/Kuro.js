@@ -1,7 +1,7 @@
 module.exports = {
     name: 'kuro',
     description: 'Kuro\'s info',
-    execute(message, args) {
+    execute(message) {
         const profileEmbed = {
             color: '#000000',
             title: 'Onde encontrar o Kuro',
@@ -28,15 +28,3 @@ module.exports = {
         message.channel.send({ embed: profileEmbed });
     }
 }
-/*Discord.MessageEmbed()
-.setColor('#000000')
-.setTitle('Kuro')
-.setAuthor('QueBomBOT', '../assets/qbomBOT_Logo')
-.setDescription('Onde encontrar o Kuro')
-.setThumbnail('')
-.addFields(
-    { name: 'Twitch', value: 'https://bit.ly/3k35b0u'},
-    { name: 'Twitter', value: 'https://bit.ly/2UiomIS'},
-    { name: 'Instagram', value: 'https://bit.ly/2WHkVwW'},
-    { name: 'Youtube', value: 'https://bit.ly/2QHSVW2'},
-)*/

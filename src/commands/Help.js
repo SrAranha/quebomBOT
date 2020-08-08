@@ -1,7 +1,7 @@
 module.exports = {
     name: 'help',
     description: 'Show all commands',
-    execute(message, args) {
+    execute(message) {
         const helpEmbed = {
             color: '#df8edd',
             title: 'Comandos do QueBomBOT',
