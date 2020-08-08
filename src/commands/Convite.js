@@ -1,6 +1,7 @@
 module.exports = {
     name: 'convite',
     description: 'Send the invite for QueBom Oficial channel',
+    cooldown: '60',
     execute(message) {
         const inviteEmbed = {
             color: '#df8edd',
