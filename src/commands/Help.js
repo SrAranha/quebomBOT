@@ -5,7 +5,10 @@ module.exports = {
         const helpEmbed = {
             color: '#df8edd',
             title: 'Comandos do QueBomBOT',
-            description: 'O prefixo para os comandos é `qb`',            
+            description: 'O prefixo para os comandos é `qb`',
+            thumbnail: {
+                url: 'https://i.imgur.com/zYPqM6S.jpg'
+            },
             fields: [
                 {
                     name: 'Argumentos',
@@ -13,19 +16,19 @@ module.exports = {
                 },
                 {
                     name: 'Help',
-                    value: 'Mostra os comandos disponíveis com suas descrições',
+                    value: 'Mostra os comandos disponíveis com suas descrições.',
                 },
                 {
                     name: 'Aranha, Marvin, Pepinow, Poleza, Pirao, Kuro',
-                    value: 'Mostra as redes sociais dos membros do QueBom',
+                    value: 'Mostra as redes sociais dos membros do QueBom.',
                 },
                 {
-                    name: 'Ping',
-                    value: 'Pong!',
+                    name: 'Convite',
+                    value: 'Envia o link para convite do servidor do QueBom Oficial.',
                 },
                 {
                     name: 'Poll {texto da votação}',
-                    value: 'Cria uma votação',
+                    value: 'Cria uma votação.',
                 },
             ],
             timestamp: new Date(),
