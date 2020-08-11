@@ -3,7 +3,7 @@ module.exports = {
     description: 'Give a role to an user by reaction',
     execute(message, args) {
 
-        if (message.author.roles.cache.some(role => role.name === 'Moderadores' || role.name === 'QueBom' || message.author.id === '227887537102782464')) { //Checks if user has permissions
+        if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
             function getRoleFromMention(mention) {
                 if (!mention)
                     console.log('No role was passed');

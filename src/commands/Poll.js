@@ -4,7 +4,7 @@ module.exports = {
     execute(message, args) {
         message.delete();
 
-        if (message.author.roles.cache.some(role => role.name === 'Moderadores' || role.name === 'QueBom' || message.author.id === '227887537102782464')) { //Checks if user has permissions
+        if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
             const pollName = args.slice(0).join(' ');
             const pollAuthor = message.author;
             const pollEmbed = {
