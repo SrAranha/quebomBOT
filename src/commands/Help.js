@@ -19,7 +19,7 @@ module.exports = {
                     value: 'Mostra os comandos disponíveis com suas descrições.',
                 },
                 {
-                    name: 'Aranha, Marvin, Pepinow, Poleza, Pirao, Kuro',
+                    name: 'Aranha, Kuro, Marvin, Pepinow, Pirao, Poleza',
                     value: 'Mostra as redes sociais dos membros do QueBom.',
                 },
                 {
@@ -29,6 +29,10 @@ module.exports = {
                 {
                     name: 'Poll {texto da votação}',
                     value: 'Cria uma votação.',
+                },
+                {
+                    name: 'Ping',
+                    value: 'Pong!',
                 },
             ],
             timestamp: new Date(),
