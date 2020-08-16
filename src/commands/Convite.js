@@ -12,7 +12,7 @@ module.exports = {
             fields: [
                 {
                     name: 'Convite: ',
-                    value: 'https://discord.com/rgY93qR',
+                    value: 'https://discord.gg/rgY93qR',
                 },
             ],
             timestamp: new Date(),
