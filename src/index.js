@@ -39,3 +39,8 @@ client.on('message', message => {
         message.reply('Houve um erro ao executar o comando!')
     }
 });
+
+// Catching API errors
+process.on('unhandledRejection', error => {
+	console.error('Unhandled promise rejection:', error);
+});
