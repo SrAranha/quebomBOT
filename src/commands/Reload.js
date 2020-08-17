@@ -4,7 +4,7 @@ module.exports = {
 	args: true,
 	execute(message, args) {
 		//Checks if its me (Sr_Aranha) who passes the command
-		if (!message.author.id === '227887537102782464') return message.channel.send(`${message.autho}, você não tem permissão para utilizar este comando`);
+		if (!message.author.id === '227887537102782464') return message.channel.send(`${message.author}, você não tem permissão para utilizar este comando`);
 
 		if (!args.length) return message.channel.send(`Você não passou comando algum para recarregar, ${message.author}!`);
 		
