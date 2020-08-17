@@ -19,10 +19,6 @@ module.exports = {
                     value: 'https://bit.ly/39f8Cuf',
                 },
                 {
-                    name: 'Instagram',
-                    value: 'https://bit.ly/39f8Cuf',
-                },
-                {
                     name: 'Youtube',
                     value: 'https://bit.ly/39k0AQO',
                 },
