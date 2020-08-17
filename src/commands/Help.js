@@ -27,10 +27,6 @@ module.exports = {
                     value: 'Envia o link para convite do servidor do QueBom Oficial.',
                 },
                 {
-                    name: 'Poll {texto da votação}',
-                    value: 'Cria uma votação.',
-                },
-                {
                     name: 'Ping',
                     value: 'Pong!',
                 },
