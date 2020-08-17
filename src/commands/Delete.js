@@ -7,7 +7,6 @@ module.exports = {
             message.delete()
             message.channel.bulkDelete(messagesTarget);
             message.channel.send(`Deleting ${messagesTarget} messages.`).then(msg => msg.delete({timeout: 3000}))
-            console.log('bomdia')
         }
         else (message.channel.send(`${message.author}, você não pode usar este comando!`))
     }
