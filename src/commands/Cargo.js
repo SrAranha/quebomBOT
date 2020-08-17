@@ -1,8 +1,8 @@
 module.exports = {
     name: 'cargo',
     description: 'Give a role to an user by reaction',
+    guildOnly: true,
     execute(message, args) {
-
         if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
             function getRoleFromMention(mention) {
                 if (!mention)

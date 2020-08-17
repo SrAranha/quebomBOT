@@ -1,6 +1,7 @@
 module.exports = {
     name: 'punir',
     description: 'Command to punish members',
+    guildOnly: true,
     execute(message) {
         if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
             const member = message.mentions.members.first();

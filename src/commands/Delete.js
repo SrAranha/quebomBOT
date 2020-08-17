@@ -1,6 +1,7 @@
 module.exports = {
     name: 'delete',
     description: 'Deletes an amount of messages',
+    guildOnly: true,
     execute(message, args) {
         if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
             const messagesTarget = args.slice(0).join(' ');

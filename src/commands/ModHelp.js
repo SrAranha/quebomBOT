@@ -1,6 +1,7 @@
 module.exports = { 
     name: 'modhelp',
     description: 'Show help list with mod\'s commands',
+    guildOnly: true,
     execute(message) {
         if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
             const modEmbed = {

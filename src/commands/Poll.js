@@ -1,9 +1,9 @@
 module.exports = {
     name: 'poll',
     description: 'Starts an poll',
+    guildOnly: true,
     execute(message, args) {
         message.delete();
-
         if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
             const pollName = args.slice(0).join(' ');
             const pollAuthor = message.author;

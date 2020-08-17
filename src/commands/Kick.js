@@ -1,6 +1,7 @@
 module.exports = {
     name: 'kick',
     description: 'Kicks user mentioned from the guild',
+    guildOnly: true,
     execute(message, args) {
         if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
             const member = message.mentions.members.first();

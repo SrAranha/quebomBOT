@@ -1,6 +1,7 @@
 module.exports = {
     name: 'mural',
     description: 'Specific command for #Mural',
+    guildOnly: true,
     execute(message, args) {
         if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
             message.delete() //deletes message calling the command
