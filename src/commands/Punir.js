@@ -14,6 +14,7 @@ module.exports = {
                 },
                 timestamp: new Date(),
             };
+            message.delete();
             member.roles.add(role); 
             message.channel.send({embed: punishEmbed});
         }
