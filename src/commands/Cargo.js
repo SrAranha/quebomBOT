@@ -4,23 +4,13 @@ module.exports = {
     guildOnly: true,
     execute(message, args) {
         if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
-            function getRoleFromMention(mention) {
-                if (!mention)
-                    console.log('No role was passed');
-
-                if (mention.startsWith('<@&') && mention.endsWith('>')) {
-                    mention = mention.slice(3, -1);
-                    return message.guild.roles.cache.get(mention);
-                }
-            }
-
             const messageId = args.slice(0, 1);
             const roleEmoji = args.slice(1, 2);
-            const roleMention = args.slice(2, 3);
-            const roleToGive = getRoleFromMention(`${roleMention}`);
+            const roleToGive = message.mentions.roles.first();
 
+            message.delete();
             //Bot will react the specified message with the given emoji
-            console.log('\x1b[35m%s\x1b[0m', 'messageId:', messageId, 'roleEmoji:', roleEmoji, 'roleMention', roleMention); // show each argument on terminal
+            console.log('\x1b[35m%s\x1b[0m', 'messageId:', messageId, 'roleEmoji:', roleEmoji, 'roleToGive:', roleToGive.name); // show each argument on terminal
             message.channel.messages.fetch(`${messageId}`).then(msg => msg.react(`${roleEmoji}`));
 
             //Reaction Collector #3 (thanks to https://stackoverflow.com/users/10046076/daemon-beast i've done it!)
