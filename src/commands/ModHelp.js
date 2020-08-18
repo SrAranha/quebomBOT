@@ -21,7 +21,7 @@ module.exports = {
                         value: 'Mostra os comandos disponíveis para moderadores com suas descrições.',
                     },
                     {
-                        name: 'Banir (razão)',
+                        name: 'Banir (Razão)',
                         value: 'Bane o membro mencionado.',
                     },
                     {
@@ -33,8 +33,12 @@ module.exports = {
                         value: 'Puni o membro mencionado.',
                     },
                     {
-                        name: 'Poll {texto da votação}',
+                        name: 'Poll {Texto da votação}',
                         value: 'Cria uma votação com ✅ e ❌.',
+                    },
+                    {
+                        name: 'Tag {Usuário} {Cargo}',
+                        value: 'Dá o cargo especifícado ao usuário mencionado',
                     },
                 ],
                 timestamp: new Date(),
