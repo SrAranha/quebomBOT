@@ -2,3 +2,5 @@
 *.json
 // and this is to ignore config.json (i hope so)
 config.json
+// ignore testes.js
+testes.js
