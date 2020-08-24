@@ -21,7 +21,7 @@ module.exports = {
 		try {
 			const newCommand = require(`./${command.name}.js`);
 			message.client.commands.set(newCommand.name, newCommand);
-			message.channel.send(`O comando \`${command.name}\` foi recarregado!`);
+			console.log('\x1b[35m%s\x1b[0m', `${command.name} was reloaded!`);
 		} catch (error) {
 			console.log(error);
 			message.channel.send(`Teve um erro ao recarregar o comando \`${command.name}\`:\n\`${error.message}\``);
