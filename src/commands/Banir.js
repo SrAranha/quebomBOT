@@ -6,6 +6,7 @@ module.exports = {
         if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
             const member = message.mentions.members.first();
             const reason = args.slice(1).join(' ');
+            const auditLog = message.guild.channels.cache.find(channel => channel.id === '742759841751367782');
             const bannedEmbed = {
                 color: '#F80000',
                 title: `Usuário banido: ${member.user.tag}`,
@@ -23,7 +24,7 @@ module.exports = {
             };
             message.delete();
             message.guild.members.ban(member, options = { days: 7, reason: reason});
-            message.channel.send({embed: bannedEmbed});
+            auditLog.send({embed: bannedEmbed});
         }
         else (message.channel.send(`${message.author}, você não pode usar este comando!`))
     }
