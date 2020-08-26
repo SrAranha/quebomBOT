@@ -3,6 +3,7 @@ module.exports = {
 	description: 'Reloads a command',
 	args: true,
 	execute(message, args) {
+		message.delete();
 		//Checks if its me (Sr_Aranha) who passes the command
 		if (!message.author.id === '227887537102782464') return message.channel.send(`${message.author}, você não tem permissão para utilizar este comando`);
 
