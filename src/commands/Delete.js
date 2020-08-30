@@ -7,7 +7,7 @@ module.exports = {
             const messagesTarget = args.slice(0).join(' ');
             message.delete()
             message.channel.bulkDelete(messagesTarget);
-            message.channel.send(`Deleting ${messagesTarget} messages.`).then(msg => msg.delete({timeout: 3000}))
+            message.channel.send(`Deleting ${messagesTarget} messages.`).then(msg => msg.delete({timeout: 3000}));
         }
         else (message.channel.send(`${message.author}, você não pode usar este comando!`))
     }
