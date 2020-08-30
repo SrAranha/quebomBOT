@@ -10,7 +10,7 @@ module.exports = {
                         
             switch (muralArg[0].toLowerCase()) {
                 case 'abrir':
-                    message.channel.send('Mural está aberto!');
+                    message.channel.send('Mural está aberto!').then(msg => msg.delete({timeout: 3000}));
                     channelMural.updateOverwrite(channelMural.guild.roles.everyone, { 
                         'VIEW_CHANNEL': true,
                         'SEND_MESSAGES': true,
@@ -20,7 +20,7 @@ module.exports = {
                         });
                     break;
                 case 'fechar':
-                    message.channel.send('Mural está fechado!');
+                    message.channel.send('Mural está fechado!').then(msg => msg.delete({timeout: 3000}));
                     channelMural.updateOverwrite(channelMural.guild.roles.everyone, { 
                         'VIEW_CHANNEL': false,
                         'SEND_MESSAGES': false,
