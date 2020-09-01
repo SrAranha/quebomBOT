@@ -30,9 +30,8 @@ module.exports = {
                         });
                     break;
                 default: 
-                    message.channel.send(`${muralArg} (default)`);
-                    console.log(`${muralArg} (default)`);
-                    break;                               
+                    message.channel.messages.fetch(`${muralArg}`).then(msg => msg.react('✅')); // React message with '✅'
+                    break;
             }
         }
         else (message.channel.send(`${message.author}, você não tem permissão!`));
