@@ -38,7 +38,11 @@ module.exports = {
                     },
                     {
                         name: 'Tag {Usuário} {Cargo}',
-                        value: 'Dá o cargo especifícado ao usuário mencionado',
+                        value: 'Dá o cargo especifícado ao usuário mencionado.',
+                    },
+                    {
+                        name: 'Delete {nº de mensagens}',
+                        value: 'Deleta mensagens que não passam de duas semanas.',
                     },
                 ],
                 timestamp: new Date(),
