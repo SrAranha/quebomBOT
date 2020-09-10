@@ -3,7 +3,7 @@ module.exports = {
     description: 'Specific command for #Mural',
     guildOnly: true,
     execute(message, args) {
-        if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
+        if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores' || role.id === '741486402859958332')) { //Checks if user has permissions
             message.delete() //Deletes message calling the command
             const muralArg = args.slice(0, 1); //Catch what to do
             const channelMural = message.guild.channels.cache.find(channel => channel.id === '741305619297861643'); //ChannelMural
