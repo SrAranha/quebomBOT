@@ -44,6 +44,10 @@ module.exports = {
                         name: 'Delete {nº de mensagens}',
                         value: 'Deleta mensagens que não passam de duas semanas.',
                     },
+                    {
+                        name: 'Canal {Configuração}',
+                        value: 'Modifica o canal com a configuração disponível.',
+                    },
                 ],
                 timestamp: new Date(),
             };
