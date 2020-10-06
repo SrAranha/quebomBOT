@@ -27,6 +27,10 @@ module.exports = {
                     value: 'Envia o link para convite do servidor do QueBom Oficial.',
                 },
                 {
+                    name: 'Qbomcast',
+                    value: 'Mostra o que é o QueBomCAST',
+                },
+                {
                     name: 'Ping',
                     value: 'Pong!',
                 },
