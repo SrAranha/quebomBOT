@@ -21,15 +21,15 @@ module.exports = {
                         value: 'Mostra os comandos disponíveis para moderadores com suas descrições.',
                     },
                     {
-                        name: 'Banir (Razão)',
+                        name: 'Banir {Membro} (Razão)',
                         value: 'Bane o membro mencionado.',
                     },
                     {
-                        name: 'Kick',
+                        name: 'Kick {Membro} (Razão)',
                         value: 'Expulsa o membro mencionado.',
                     },
                     {
-                        name: 'Punir',
+                        name: 'Punir {Membro} (Razão)',
                         value: 'Puni o membro mencionado.',
                     },
                     {
@@ -47,6 +47,18 @@ module.exports = {
                     {
                         name: 'Canal {Configuração}',
                         value: 'Modifica o canal com a configuração disponível.',
+                    },
+                    {
+                        name: 'Mural {Configuração}',
+                        value: 'Comando exclusivo para o evento de Desenhos do QueBom.',
+                    },
+                    {
+                        name: 'Cargo {id da Mensagem} {Emoji} {Cargo}',
+                        value: 'Dá um cargo para quem reagir com os emojis selecionados na mensagem.',
+                    },
+                    {
+                        name: 'Tag {Membro} {Cargo}',
+                        value: 'Dá um cargo para o usuário mencionado.',
                     },
                 ],
                 timestamp: new Date(),
