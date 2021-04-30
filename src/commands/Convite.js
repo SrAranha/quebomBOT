@@ -1,6 +1,6 @@
 module.exports = {
     name: 'convite',
-    description: 'Send the invite for QueBom Oficial channel',
+    description: 'Send the invite for QueBom Oficial server',
     execute(message) {
         const inviteEmbed = {
             color: '#df8edd',

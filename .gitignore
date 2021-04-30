@@ -2,5 +2,7 @@
 *.json
 // ignore .html
 *.html
+// ignore code-workspace
+*.code-workspace
 // ignore testes.js
 testes.js

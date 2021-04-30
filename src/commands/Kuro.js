@@ -1,13 +1,15 @@
 module.exports = {
     name: 'kuro',
     description: 'Kuro\'s info',
-    execute(message) {
+    execute(message, args, client) {
+        const { Kuro_ID } = require("../config.json");
+        const ID = client.users.cache.get(Kuro_ID);
         const profileEmbed = {
             color: '#000000',
             title: 'Onde encontrar o Kuro',
             author: {
-                name: 'Kuro',
-                icon_url: 'https://cdn.discordapp.com/avatars/165883953977229322/5265ec4d8c9fa89cbaf126a796335b05.webp',
+                name: `${ID.username}`,
+                icon_url: `${ID.displayAvatarURL()}`
             },
             fields: [
                 {

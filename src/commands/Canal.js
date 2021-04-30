@@ -31,7 +31,7 @@ module.exports = {
                     message.delete();
                     if (isNaN(args[1])) return message.channel.send('Isso não é um número.').then(msg => msg.delete({timeout: 5000}));
                     if (args[1] > 21600) return message.channel.send('Número inválido, deve ser menor que 21600.').then(msg => msg.delete({timeout: 5000}));
-                    message.channel.send(`Canal está em modo lento por ${args[1]} segundos`).then(msg => msg.delete({timeout: 3000}));
+                    message.channel.send(`Canal está em modo lento de ${args[1]} segundos`).then(msg => msg.delete({timeout: 3000}));
                     message.channel.setRateLimitPerUser(args[1]);
                     break;
                 case 'normal': // Set channel to normal speed

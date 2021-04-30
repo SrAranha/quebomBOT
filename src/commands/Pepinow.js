@@ -1,13 +1,15 @@
 module.exports = {
     name: 'pepinow',
     description: 'Pepinow\'s info',
-    execute(message) {
+    execute(message, args, client) {
+        const { Pepinow_ID } = require("../config.json");
+        const ID = client.users.cache.get(Pepinow_ID);
         const profileEmbed = {
             color: '#2F6D32',
             title: 'Onde encontrar o Pepinow',
             author: {
-                name: 'Pepinow',
-                icon_url: 'https://cdn.discordapp.com/avatars/249982719537315841/ca3d02c35c4d06aa24ed8dcbbfb428dc.webp',
+                name: `${ID.username}`,
+                icon_url: `${ID.displayAvatarURL()}`
             },
             fields: [
                 {

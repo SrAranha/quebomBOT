@@ -1,13 +1,15 @@
 module.exports = {
     name: 'aranha',
     description: 'Aranha\'s info',
-    execute(message) {
+    execute(message, args, client) {
+        const { AranhaBoladona_ID } = require("../config.json");
+        const ID = client.users.cache.get(AranhaBoladona_ID);
         const profileEmbed = {
             color: '#7000BF',
             title: 'Onde encontrar o Aranha',
             author: {
-                name: 'Aranha',
-                icon_url: 'https://cdn.discordapp.com/avatars/227887537102782464/a36461f64cdd54c69d83b8f054ea2a93.webp',
+                name: `${ID.username}`,
+                icon_url: `${ID.displayAvatarURL()}`
             },
             fields: [
                 {

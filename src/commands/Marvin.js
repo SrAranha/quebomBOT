@@ -1,13 +1,15 @@
 module.exports = {
     name: 'marvin',
     description: 'Marvin\'s info',
-    execute(message) {
+    execute(message, args, client) {
+        const { Marvin_ID } = require("../config.json");
+        const ID = client.users.cache.get(Marvin_ID);
         const profileEmbed = {
             color: '#1B90C6',
             title: 'Onde encontrar o Marvin',
             author: {
-                name: 'Marvin',
-                icon_url: 'https://cdn.discordapp.com/avatars/242419392204242955/3d07cc2d85c990c50baef3aba9263a03.webp',
+                name: `${ID.username}`,
+                icon_url: `${ID.displayAvatarURL()}`
             },
             fields: [
                 {

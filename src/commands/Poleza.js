@@ -1,13 +1,15 @@
 module.exports = {
     name: 'poleza',
     description: 'Poleza\'s info',
-    execute(message) {
+    execute(message, args, client) {
+        const { Poleza_ID } = require("../config.json");
+        const ID = client.users.cache.get(Poleza_ID);
         const profileEmbed = {
             color: '#874B0C',
             title: 'Onde encontrar o Poleza',
             author: {
-                name: 'Poleza',
-                icon_url: 'https://cdn.discordapp.com/avatars/307336180217937931/e457d59128f2c1d1b118ca9e793339fb.webp',
+                name: `${ID.username}`,
+                icon_url: `${ID.displayAvatarURL()}`
             },
             fields: [
                 {

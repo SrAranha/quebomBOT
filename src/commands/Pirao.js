@@ -1,13 +1,15 @@
 module.exports = {
     name: 'pirao',
     description: 'Pirão\'s info',
-    execute(message) {
+    execute(message, args, client) {
+        const { Pirao_ID } = require("../config.json");
+        const ID = client.users.cache.get(Pirao_ID);
         const profileEmbed = {
             color: '#CB5A07',
             title: 'Onde encontrar o Pirão',
             author: {
-                name: 'Pirão',
-                icon_url: 'https://cdn.discordapp.com/avatars/230428079208529920/7ea9e0b509370b2b15c4f02ac887f286.webp',
+                name: `${ID.username}`,
+                icon_url: `${ID.displayAvatarURL()}`
             },
             fields: [
                 {
