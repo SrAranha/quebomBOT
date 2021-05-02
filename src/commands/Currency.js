@@ -3,12 +3,12 @@ module.exports = {
     description: 'Show the wealth for some currencies of the world.',
     execute(message, args, client) {
         //currencies
-        const currencyUSD = 5.34;
-        const currencyEUR = 6.48;
-        const currencyGBP = 7.45;
-        const currencyJPY = 0.049;
-        const currencyCHF = 5.87;
-        const currencyARS = 0.057;
+        const currencyUSD = 5.44;
+        const currencyEUR = 6.54;
+        const currencyGBP = 7.51;
+        const currencyJPY = 0.050;
+        const currencyCHF = 5.96;
+        const currencyARS = 0.058;
 
         const currencies = ['USD', 'DOLAR', 'EUR', 'EURO', 'GBP', 'LIBRA', 'JPY', 'YENE', 'CHF', 'FRANCO', 'ARS', 'PESOARG'];
         
@@ -17,6 +17,9 @@ module.exports = {
 
         if (!choosenCurrency || !moneyAmount) {
         message.reply("Está faltando paramêtros para o comando, tente `qbCurrency {moeda} {quantidade}`!");
+        }
+        else if (!currencies.includes(choosenCurrency)) {
+            message.reply(`Esse não é uma moeda suportada pelo bot. As moedas suportadas são \`${currencies}\`!`);
         }
         else {
             switch (choosenCurrency) {
@@ -50,14 +53,11 @@ module.exports = {
                     var currencyColor = '#002395';
                     var emojiFlag = ":flag_ch:"
                     break;
-                case 'PESOARG': // Peso currency
+                case 'PESOARG': // Peso Argentino currency
                 case 'ARS':
                     var result = moneyAmount * currencyARS;
                     var currencyColor = '#74acdf';
                     var emojiFlag = ":flag_ar:"
-                    break;
-                default:
-                    message.reply(`Esse não é uma moeda suportada pelo bot. As moedas suportadas são \`${currencies}\`!`);
                     break;
             }
             const { QueBomBOT_ID } = require("../config.json");
@@ -76,6 +76,7 @@ module.exports = {
                     },
                 ],
                 timestamp: new Date(),
+                footer: { text: 'Última atualização em 01/05/2021 às 19:23'}
             };
             message.channel.send({embed: currencyEmbed});
         }
