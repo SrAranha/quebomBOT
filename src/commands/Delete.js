@@ -5,10 +5,15 @@ module.exports = {
     execute(message, args) {
         if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
             const messagesTarget = args.slice(0).join(' ');
-            message.delete()
-            message.channel.bulkDelete(messagesTarget);
-            message.channel.send(`Deleting ${messagesTarget} messages.`).then(msg => msg.delete({timeout: 3000}));
-        }
-        else (message.channel.send(`${message.author}, você não pode usar este comando!`))
+            if (messagesTarget > 100) {
+                message.reply("O máximo de mensagens para serem deletadas é 100");
+            }
+            else if (messagesTarget <= 100) { 
+                message.delete()
+                message.channel.bulkDelete(messagesTarget);
+                message.channel.send(`Deleting ${messagesTarget} messages.`).then(msg => msg.delete({timeout: 3000}));
+            }
+        }   
+        else (message.reply('você não pode usar este comando!'))
     }
 }
