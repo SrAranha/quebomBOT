@@ -3,9 +3,9 @@ module.exports = {
     description: 'Show the wealth for some currencies of the world.',
     execute(message, args, client) {
         //currencies
-        const currencyUSD = 5.44;
+        const currencyUSD = 5.43;
         const currencyEUR = 6.54;
-        const currencyGBP = 7.51;
+        const currencyGBP = 7.56;
         const currencyJPY = 0.050;
         const currencyCHF = 5.96;
         const currencyARS = 0.058;
@@ -83,7 +83,7 @@ module.exports = {
                     },
                 ],
                 timestamp: new Date(),
-                footer: { text: 'Última atualização em 01/05/2021 às 19:23'}
+                footer: { text: 'Última atualização em 04/05/2021 às 19:23'}
             };
             message.channel.send({embed: currencyEmbed});
         }
