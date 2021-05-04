@@ -9,8 +9,9 @@ module.exports = {
         const currencyJPY = 0.050;
         const currencyCHF = 5.96;
         const currencyARS = 0.058;
+        const currencyRMB = 0.84;
 
-        const currencies = ['USD', 'DOLAR', 'EUR', 'EURO', 'GBP', 'LIBRA', 'JPY', 'YENE', 'CHF', 'FRANCO', 'ARS', 'PESOARG'];
+        const currencies = ['USD', 'DOLAR', 'EUR', 'EURO', 'GBP', 'LIBRA', 'JPY', 'YENE', 'CHF', 'FRANCO', 'ARS', 'PESOARG', 'RMB', 'REMIMBI'];
         
         const choosenCurrency = args.slice(0,1).join(' ').toUpperCase();
         const moneyAmount = parseInt(args.slice(1).join(' '));
@@ -58,6 +59,12 @@ module.exports = {
                     var result = moneyAmount * currencyARS;
                     var currencyColor = '#74acdf';
                     var emojiFlag = ":flag_ar:"
+                    break;
+                case 'REMIMBI': // Remimbi currency
+                case 'RMB':
+                    var result = moneyAmount * currencyRMB;
+                    var currencyColor = '#de2910';
+                    var emojiFlag = ":flag_cn:"
                     break;
             }
             const { QueBomBOT_ID } = require("../config.json");
