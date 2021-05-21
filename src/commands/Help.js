@@ -44,6 +44,10 @@ module.exports = {
                     name: 'Avatar (Usuário)',
                     value: 'Mostra o avatar do usuário que chamou o comando ou o usuário mencionado.',
                 },
+                {
+                    name: 'Calc {Operação}',
+                    value: 'Comando que calcula a operação enviada. Função ainda em construção.',
+                },
             ],
             timestamp: new Date(),
         };
