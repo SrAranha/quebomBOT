@@ -82,7 +82,6 @@ module.exports = {
                         value: `${moneyAmount} -> ${result}`,
                     },
                 ],
-                timestamp: new Date(),
                 footer: { text: 'Última atualização em 04/05/2021 às 19:23'}
             };
             message.channel.send({embed: currencyEmbed});
