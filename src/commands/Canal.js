@@ -53,7 +53,7 @@ module.exports = {
                         break;
                 }
             }
-            else message.delete(); message.reply('comando está incompleto ou errado.').then(msg => msg.delete({timeout: 5000}));
+            else message.delete(); message.reply('comando está incompleto ou errado, as opções são `privado, publico, lento {segundos}, normal, +18, -18`.').then(msg => msg.delete({timeout: 5000}));
         }
         else (message.channel.send(`${message.author}, você não tem permissão!`));
     }
