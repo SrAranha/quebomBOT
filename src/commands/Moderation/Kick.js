@@ -1,5 +1,6 @@
 module.exports = {
     name: 'kick',
+    aliases: ['kickar'],
     description: 'Kicks user mentioned from the guild',
     guildOnly: true,
     execute(message, args) {

@@ -1,5 +1,6 @@
 module.exports = {
     name: 'punir',
+    aliases: ['punish'],
     description: 'Command to punish members',
     guildOnly: true,
     execute(message) {

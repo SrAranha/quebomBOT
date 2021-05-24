@@ -1,5 +1,6 @@
 module.exports = {
     name: 'poll',
+    aliases: ['enquete'],
     description: 'Starts an poll',
     guildOnly: true,
     execute(message, args) {

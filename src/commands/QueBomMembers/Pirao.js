@@ -1,5 +1,6 @@
 module.exports = {
     name: 'pirao',
+    aliases: ['pirolis'],
     description: 'Pirão\'s info',
     execute(message, args, client) {
         const { Pirao_ID, QueBomBOT_ID } = require("../config.json");

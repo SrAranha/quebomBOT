@@ -1,5 +1,6 @@
 module.exports = {
     name: 'tag',
+    aliases: ['addrole','role'],
     description: 'Give an role to the mentioned user',
     guildOnly: true,
     execute(message) {

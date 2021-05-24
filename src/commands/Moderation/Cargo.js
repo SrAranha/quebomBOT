@@ -1,5 +1,6 @@
 module.exports = {
     name: 'cargo',
+    aliases: ['reacrole'],
     description: 'Give a role to an user by reaction',
     guildOnly: true,
     execute(message, args) {

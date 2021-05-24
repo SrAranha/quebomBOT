@@ -1,5 +1,6 @@
 module.exports = {
     name: 'canal',
+    aliases: ['channel'],
     description: 'Change settings from channel',
     guildOnly: true,
     execute(message, args) {

@@ -1,5 +1,6 @@
 module.exports = {
     name: 'avatar',
+    aliases: ['icon'],
     description: 'Get user\'s avatar if not specified',
     execute(message) {
         const mentionedUser = message.mentions.users.first();

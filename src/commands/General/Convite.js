@@ -1,5 +1,6 @@
 module.exports = {
     name: 'convite',
+    aliases: ['invite'],
     description: 'Send the invite for QueBom Oficial server',
     execute(message) {
         const inviteEmbed = {

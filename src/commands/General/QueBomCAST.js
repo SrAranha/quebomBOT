@@ -1,5 +1,6 @@
 module.exports = {
     name: 'qbomcast',
+    aliases: ['qbcast','quebomcast'],
     description: 'shows quebomcast info',
     execute(message) {
         const qbomcastEmbed = {

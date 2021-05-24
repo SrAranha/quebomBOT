@@ -1,5 +1,6 @@
 module.exports = {
     name: 'calc',
+    aliases: ['opr'],
     description: 'command that calculates (LOL)',
     execute(message, args) {
 

@@ -1,5 +1,6 @@
 module.exports = {
     name: 'banir',
+    aliases: ['ban'],
     description: 'Bans user mentioned from the guild',
     guildOnly: true,
     execute(message, args) {

@@ -1,5 +1,6 @@
 module.exports = {
     name: 'help',
+    aliases: ['ajuda'],
     description: 'Show all commands',
     execute(message, args, client) {
         const { QueBomBOT_ID } = require("../config.json");
