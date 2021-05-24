@@ -2,8 +2,10 @@ module.exports = {
     name: 'poleza',
     description: 'Poleza\'s info',
     execute(message, args, client) {
-        const { Poleza_ID } = require("../config.json");
-        const ID = client.users.cache.get(Poleza_ID);
+        const { Poleza_ID, QueBomBOT_ID } = require("../config.json");
+        var ID = client.users.cache.get(Poleza_ID);
+        if (!ID) { var ID = client.users.cache.get(QueBomBOT_ID); };
+        
         const profileEmbed = {
             color: '#874B0C',
             title: 'Onde encontrar o Poleza',
