@@ -5,8 +5,7 @@ module.exports = {
     execute(message, args) {
         const { AranhaBoladona_ID } = require('../config.json');
         //const roleMaxDel;
-        if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores' || 
-                                            message.author.id === AranhaBoladona_ID)) { 
+        if (message.member.hasPermission(ADMINISTRATOR) || message.member.hasPermission(MANAGE_MESSAGES)) { 
             const messagesTarget = parseInt(args.slice(0).join(' '));
             if (messagesTarget > 100) {
                 message.reply("O máximo de mensagens para serem deletadas é 100");

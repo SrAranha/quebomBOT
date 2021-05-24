@@ -4,7 +4,7 @@ module.exports = {
 	args: true,
 	execute(message, args) {
 		message.delete();
-        const { AranhaBoladona_ID } = require('../config.json');
+        const { AranhaBoladona_ID } = require('../../config.json');
 		//Checks if its me (Sr_Aranha) who passes the command
 		if (!message.author.id === AranhaBoladona_ID) return message.reply('você não tem permissão para utilizar este comando');
 
@@ -18,7 +18,19 @@ module.exports = {
 			return message.reply(`Não tem comando com o nome \`${commandName}\`.`);
 		}
 
-		delete require.cache[require.resolve(`./${command.name}.js`)];
+		const commandFolders = fs.readdirSync('./commands');
+		const folderName = commandFolders.find(folder => fs.readdirSync(`./commands/${folder}`).includes(`${commandName}.js`));
+
+		delete require.cache[require.resolve(`../${folderName}/${command.name}.js`)];
+			
+		try {
+			const newCommand = require(`../${folderName}/${command.name}.js`);
+			message.client.commands.set(newCommand.name, newCommand);
+			message.channel.send(`Command \`${newCommand.name}\` was reloaded!`);
+		} catch (error) {
+			console.error(error);
+			message.channel.send(`There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``);
+		}
 
 		try {
 			const newCommand = require(`./${command.name}.js`);
