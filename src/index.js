@@ -17,7 +17,7 @@ for (const file of commandFiles) {
 client.once('ready', () => {
     console.log('\x1b[32m%s\x1b[0m','QueBomBOT is now online! \n' +
     'Avaliable commands: ' + commandFiles);
-    client.user.setActivity("created by AranhaBoladona", { type: "WATCHING"});
+    client.user.setActivity("created by Sr_Aranha", { type: "PLAYING"});
 });
 client.login(botToken);
 
