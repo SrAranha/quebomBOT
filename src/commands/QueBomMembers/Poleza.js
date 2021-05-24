@@ -2,7 +2,7 @@ module.exports = {
     name: 'poleza',
     description: 'Poleza\'s info',
     execute(message, args, client) {
-        const { Poleza_ID, QueBomBOT_ID } = require("../config.json");
+        const { Poleza_ID, QueBomBOT_ID } = require("../../config.json");
         var ID = client.users.cache.get(Poleza_ID);
         if (!ID) { var ID = client.users.cache.get(QueBomBOT_ID); };
         

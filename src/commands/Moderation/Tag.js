@@ -4,7 +4,7 @@ module.exports = {
     description: 'Give an role to the mentioned user',
     guildOnly: true,
     execute(message) {
-        if (message.member.hasPermission(ADMINISTRATOR) || message.member.hasPermission(MANAGE_ROLES)) { 
+        if (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("MANAGE_ROLES")) { 
             const member = message.mentions.members.first();
             const role = message.mentions.roles.first();
             const auditLog_QBom = require ("../../config.json")

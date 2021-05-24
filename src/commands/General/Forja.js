@@ -2,9 +2,9 @@ module.exports = {
     name: 'forja',
     description: "Exclusive command for Dracma's Forja",
     execute(message) {
-        const { serverForja_ID, serverTestes_ID } = require("../config.json")
+        const { serverForja_ID, serverTestes_ID } = require("../../config.json")
         if (message.guild.id === serverForja_ID || message.guild.id === serverTestes_ID ) {
-            const { SoroKingu_ID, AranhaBoladona_ID, TexugoFurioso_ID, jreginna_ID, ilustraGra_ID } = require('../config.json');
+            const { SoroKingu_ID, AranhaBoladona_ID, TexugoFurioso_ID, jreginna_ID, ilustraGra_ID } = require('../../config.json');
             const names = ['SoroKingu', 'AranhaBoladona', 'TexugoFurioso', 'jreginna', 'ilustraGra'];
             let chance = names[Math.floor(Math.random() * names.length)];
 

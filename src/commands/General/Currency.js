@@ -67,7 +67,7 @@ module.exports = {
                     var emojiFlag = ":flag_cn:"
                     break;
             }
-            const { QueBomBOT_ID } = require("../config.json");
+            const { QueBomBOT_ID } = require("../../config.json");
             const ID = client.users.cache.get(QueBomBOT_ID);
             const currencyEmbed = {
                 color: `${currencyColor}`,

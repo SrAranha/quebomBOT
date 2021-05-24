@@ -4,7 +4,7 @@ module.exports = {
     description: 'Command to punish members',
     guildOnly: true,
     execute(message) {
-        if (message.member.hasPermission(ADMINISTRATOR) || message.member.hasPermission(MANAGE_ROLES) || message.member.hasPermission(KICK_MEMBERS)) { 
+        if (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("MANAGE_ROLES") || message.member.hasPermission("KICK_MEMBERS")) { 
             const member = message.mentions.members.first();
             const role = message.guild.roles.cache.find(role => role.name === 'Punidos');
             const auditLog_QBom = require ("../../config.json")

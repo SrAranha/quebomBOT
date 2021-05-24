@@ -3,7 +3,7 @@ module.exports = {
     aliases: ['pepino'],
     description: 'Pepinow\'s info',
     execute(message, args, client) {
-        const { Pepinow_ID, QueBomBOT_ID } = require("../config.json");
+        const { Pepinow_ID, QueBomBOT_ID } = require("../../config.json");
         var ID = client.users.cache.get(Pepinow_ID);
         if (!ID) { var ID = client.users.cache.get(QueBomBOT_ID); };
         

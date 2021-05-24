@@ -5,7 +5,7 @@ module.exports = {
     guildOnly: true,
     execute(message, args) {
         message.delete();
-        if (message.member.hasPermission(ADMINISTRATOR) || message.member.hasPermission(MANAGE_MESSAGES)) { 
+        if (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("MANAGE_MESSAGES")) { 
             const pollName = args.slice(0).join(' ');
             const pollAuthor = message.author;
             const pollEmbed = {

@@ -5,7 +5,7 @@ module.exports = {
     guildOnly: true,
     execute(message, args) {
         //const roleMaxDel;
-        if (message.member.hasPermission(ADMINISTRATOR) || message.member.hasPermission(MANAGE_MESSAGES)) { 
+        if (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("MANAGE_MESSAGES")) { 
             const messagesTarget = parseInt(args.slice(0).join(' '));
             if (messagesTarget > 100) {
                 message.reply("O máximo de mensagens para serem deletadas é 100");

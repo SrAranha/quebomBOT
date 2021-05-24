@@ -4,7 +4,7 @@ module.exports = {
     description: 'Change settings from channel',
     guildOnly: true,
     execute(message, args) {
-        if (message.member.hasPermission(ADMINISTRATOR) || message.member.hasPermission(MANAGE_CHANNELS)) { 
+        if (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("MANAGE_CHANNELS")) { 
             const toDo = args.slice(0);
                 switch (toDo[0].toLowerCase()) {
                     case 'privado': // Set channel private to public

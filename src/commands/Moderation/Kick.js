@@ -4,10 +4,10 @@ module.exports = {
     description: 'Kicks user mentioned from the guild',
     guildOnly: true,
     execute(message, args) {
-        if (message.member.hasPermission(ADMINISTRATOR) || message.member.hasPermission(KICK_MEMBERS)) { 
+        if (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("KICK_MEMBERS")) { 
             const member = message.mentions.members.first();
             const reason = args.slice(1).join(' ');
-            const auditLog_QBom = require ("../config.json")
+            const auditLog_QBom = require ("../../config.json")
             const auditLog = message.guild.channels.cache.find(channel => channel.id === auditLog_QBom);
             if (member != String) {
                 message.reply("o comando está incompleto!");

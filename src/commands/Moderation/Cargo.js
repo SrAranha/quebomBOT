@@ -4,7 +4,7 @@ module.exports = {
     description: 'Give a role to an user by reaction',
     guildOnly: true,
     execute(message, args) {
-        if (message.member.hasPermission(ADMINISTRATOR) || message.member.hasPermission(MANAGE_ROLES || message.member.hasPermission(MANAGE_MESSAGES))) { 
+        if (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("MANAGE_ROLES" || message.member.hasPermission("MANAGE_MESSAGES"))) { 
             const messageId = args.slice(0, 1);
             const roleEmoji = args.slice(1, 2);
             const roleToGive = message.mentions.roles.first();

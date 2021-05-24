@@ -3,7 +3,7 @@ module.exports = {
     aliases: ['ajuda'],
     description: 'Show all commands',
     execute(message, args, client) {
-        const { QueBomBOT_ID } = require("../config.json");
+        const { QueBomBOT_ID } = require("../../config.json");
         const ID = client.users.cache.get(QueBomBOT_ID);
         const helpEmbed = {
             color: '#df8edd',
