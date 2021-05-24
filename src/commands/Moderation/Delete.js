@@ -3,7 +3,6 @@ module.exports = {
     description: 'Deletes an amount of messages',
     guildOnly: true,
     execute(message, args) {
-        const { AranhaBoladona_ID } = require('../config.json');
         //const roleMaxDel;
         if (message.member.hasPermission(ADMINISTRATOR) || message.member.hasPermission(MANAGE_MESSAGES)) { 
             const messagesTarget = parseInt(args.slice(0).join(' '));

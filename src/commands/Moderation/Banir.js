@@ -3,7 +3,7 @@ module.exports = {
     description: 'Bans user mentioned from the guild',
     guildOnly: true,
     execute(message, args) {
-        if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
+        if (message.member.hasPermission(ADMINISTRATOR) || message.member.hasPermission(BAN_MEMBERS)) { 
             const member = message.mentions.members.first();
             const reason = args.slice(1).join(' ');
             const auditLog_QBom = require ("../../config.json")

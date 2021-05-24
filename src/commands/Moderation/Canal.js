@@ -3,7 +3,7 @@ module.exports = {
     description: 'Change settings from channel',
     guildOnly: true,
     execute(message, args) {
-        if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
+        if (message.member.hasPermission(ADMINISTRATOR) || message.member.hasPermission(MANAGE_CHANNELS)) { 
             const toDo = args.slice(0);
                 switch (toDo[0].toLowerCase()) {
                     case 'privado': // Set channel private to public

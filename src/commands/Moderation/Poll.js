@@ -4,7 +4,7 @@ module.exports = {
     guildOnly: true,
     execute(message, args) {
         message.delete();
-        if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
+        if (message.member.hasPermission(ADMINISTRATOR) || message.member.hasPermission(MANAGE_MESSAGES)) { 
             const pollName = args.slice(0).join(' ');
             const pollAuthor = message.author;
             const pollEmbed = {
