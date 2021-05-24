@@ -6,13 +6,15 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
 // Command handler
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFolders = fs.readdirSync('./commands');
 
-for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-    client.commands.set(command.name, command);
+for (const folder of commandFolders) {
+	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
+	for (const file of commandFiles) {
+		const command = require(`./commands/${folder}/${file}`);
+		client.commands.set(command.name, command);
+	}
 }
-
 // Initializing
 client.once('ready', () => {
     console.log('\x1b[32m%s\x1b[0m','QueBomBOT is now online! \n' +

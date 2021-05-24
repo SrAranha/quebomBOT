@@ -6,7 +6,7 @@ module.exports = {
         if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
             const member = message.mentions.members.first();
             const role = message.mentions.roles.first();
-            const auditLog_QBom = require ("../config.json")
+            const auditLog_QBom = require ("../../config.json")
             const auditLog = message.guild.channels.cache.find(channel => channel.id === auditLog_QBom);
             const tagEmbed = {
                 color: '#4EFF00',

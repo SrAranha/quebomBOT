@@ -3,8 +3,11 @@ module.exports = {
     description: 'Deletes an amount of messages',
     guildOnly: true,
     execute(message, args) {
-        if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores')) { //Checks if user has permissions
-            const messagesTarget = args.slice(0).join(' ');
+        const { AranhaBoladona_ID } = require('../config.json');
+        //const roleMaxDel;
+        if (message.member.roles.cache.some(role => role.name === 'QueBom' || role.name === 'Moderadores' || 
+                                            message.author.id === AranhaBoladona_ID)) { 
+            const messagesTarget = parseInt(args.slice(0).join(' '));
             if (messagesTarget > 100) {
                 message.reply("O máximo de mensagens para serem deletadas é 100");
             }
