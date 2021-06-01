@@ -2,6 +2,7 @@ module.exports = {
     name: 'delete',
     aliases: ['deletar'],
     description: 'Deletes an amount of messages',
+    args: true,
     guildOnly: true,
     execute(message, args) {
         //const roleMaxDel;
@@ -16,6 +17,6 @@ module.exports = {
                 message.channel.send(`Deleting ${messagesTarget} messages.`).then(msg => msg.delete({timeout: 3000}));
             }
         }   
-        else (message.reply('você não pode usar este comando!'))
+        else (message.reply('você **não** tem permissão para usar este comando!'));
     }
 }

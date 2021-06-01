@@ -54,6 +54,6 @@ module.exports = {
                         break;
                 }
             }
-        else (message.reply(`${message.author}, você **não** tem permissão!`));
-    }
+            else (message.reply('você **não** tem permissão para usar este comando!'));
+        }
 }

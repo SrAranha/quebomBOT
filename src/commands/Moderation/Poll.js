@@ -23,8 +23,6 @@ module.exports = {
             else if (
             message.channel.send({embed: pollEmbed}).then(message => message.react('✅').then(() => message.react('❌'))));
         }
-        else {
-            message.channel.send(`${message.author}, você não tem permissão para usar esse comando!`)
-        }
+        else (message.reply('você **não** tem permissão para usar este comando!'));
     }
 }

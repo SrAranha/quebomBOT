@@ -42,6 +42,7 @@ module.exports = {
                             }
                     });
                 });
-        }
+        } 
+        else (message.reply('você **não** tem permissão para usar este comando!'));
     }
 }

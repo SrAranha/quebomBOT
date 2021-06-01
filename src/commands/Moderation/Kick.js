@@ -33,6 +33,6 @@ module.exports = {
                 auditLog.send({embed: kickedEmbed});
             }
         }
-        else (message.channel.send(`${message.author}, você não pode usar este comando!`))
+        else (message.reply('você **não** tem permissão para usar este comando!'));
     }
 }
