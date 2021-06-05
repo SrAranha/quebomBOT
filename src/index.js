@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const { prefix, botToken } = require('./config.json');
+const { prefix, botToken, AranhaBoladona_ID } = require('./config.json');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -27,12 +27,13 @@ client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return; // if message is from bot or don't has prefix, ignore it
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
-    const commandName = args.shift().toLowerCase();
+    const commandCalled = args.shift().toLowerCase();
 
-    if (!client.commands.has(commandName)) return; // if no command, ignore it
-
-    const command = client.commands.get(commandName);
-
+	const command = client.commands.get(commandCalled)
+		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandCalled));
+    
+    if (!command) return; // if no command, ignore it
+    
     // Commands guildOnly
     if (command.guildOnly && message.channel.type === 'dm') {
         return message.reply("Esse comando não pode ser executado dentro de DM's!");
@@ -44,6 +45,7 @@ client.on('message', message => {
     } catch (error) {
         console.error('\x1b[31m%s\x1b[0m', error);
         message.reply('Houve um erro ao executar o comando!')
+        console.log(AranhaBoladona_ID.message.send(`There was an error when executing ${command.name}, please see the console. `));
     }
 });
 
