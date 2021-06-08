@@ -1,6 +1,6 @@
 module.exports = {
     name: 'delete',
-    aliases: ['deletar'],
+    aliases: ['deletar', 'dlt'],
     description: 'Deletes an amount of messages',
     args: true,
     guildOnly: true,
