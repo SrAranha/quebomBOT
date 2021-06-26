@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const { prefix, botToken, AranhaBoladona_ID } = require('./config.json');
+const { prefix, botToken, aranhaBoladona_ID } = require('./config.json');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -34,7 +34,7 @@ client.on('message', message => {
     
     if (!command) return; // if no command, ignore it
     
-    // Commands guildOnly
+    // Commands guildOnly: true
     if (command.guildOnly && message.channel.type === 'dm') {
         return message.reply("Esse comando não pode ser executado dentro de DM's!");
     }
@@ -45,7 +45,7 @@ client.on('message', message => {
     } catch (error) {
         console.error('\x1b[31m%s\x1b[0m', error);
         message.reply('Houve um erro ao executar o comando!')
-        console.log(AranhaBoladona_ID.message.send(`There was an error when executing ${command.name}, please see the console. `));
+        client.users.cache.get(aranhaBoladona_ID).send(`There was an error when executing \`${command.name}\`, please see the terminal. `);
     }
 });
 
