@@ -1,75 +1,115 @@
 module.exports = {
     name: 'currency',
+    aliases: ['cry'],
     description: 'Show the wealth for some currencies of the world.',
     execute(message, args, client) {
-        //currencies
-        const currencyUSD = 5.43;
-        const currencyEUR = 6.54;
-        const currencyGBP = 7.56;
-        const currencyJPY = 0.050;
-        const currencyCHF = 5.96;
-        const currencyARS = 0.058;
-        const currencyRMB = 0.84;
-
-        const currencies = ['USD', 'DOLAR', 'EUR', 'EURO', 'GBP', 'LIBRA', 'JPY', 'YENE', 'CHF', 'FRANCO', 'ARS', 'PESOARG', 'RMB', 'REMIMBI'];
+        //currencies infos
+        const cInfo = require("./currencies.json");
+        const { queBomBOT_ID } = require("../../config.json");
+        const ID = client.users.cache.get(queBomBOT_ID);
+        
+        const currencies = cInfo.accepted;
+        const listOf = cInfo.addParams;
         
         const choosenCurrency = args.slice(0,1).join(' ').toUpperCase();
         const moneyAmount = parseInt(args.slice(1).join(' '));
+        const cry = choosenCurrency.toLowerCase();
+        
+        if (!choosenCurrency) { // Error 01: no specified currency
+            message.reply(`Error 01: Moeda não específicada! Aceita-se \`${currencies}\``);
+        }
+        
+        if (listOf.includes(choosenCurrency) && !moneyAmount) { // Embed showing accepted currencies
+            var currencyEmbed = {
+                color: "#df8edd",
+                title: "Moedas suportadas pelo QueBomBOT.",
+                author: {
+                    name: `${ID.username}`,
+                    icon_url: `${ID.displayAvatarURL()}`,
+                },
+                fields: [
+                    {
+                        name: "Atualmente, temos estas moedas",
+                        value: `\`${currencies}\``,
+                    },
+                ],
+                timestamp: new Date(),
+            };
+            message.channel.send({embed: currencyEmbed});
+        }
 
-        if (!choosenCurrency || !moneyAmount) {
-        message.reply("Está faltando paramêtros para o comando, tente `qbCurrency {moeda} {quantidade}`!");
+        switch (choosenCurrency) { // Which currency will be working with
+            case 'EUR': // Euro currency
+                var result = moneyAmount * cInfo.eur.wealth;
+                var currencyColor = cInfo.eur.color;
+                var emojiFlag = cInfo.eur.flag;
+                break; 
+            case 'USD': // Dollar currency
+                var result = moneyAmount * cInfo.usd.wealth;
+                var currencyColor = cInfo.usd.color;
+                var emojiFlag = cInfo.usd.flag;
+                break;
+            case 'GBP': // Pounds currency
+                var result = moneyAmount * cInfo.gbp.wealth;
+                var currencyColor = cInfo.gbp.color;
+                var emojiFlag = cInfo.gbp.flag
+                break;
+            case 'JPY': // Yen currency
+                var result = moneyAmount * cInfo.jpy.wealth;
+                var currencyColor = cInfo.jpy.color;
+                var emojiFlag = cInfo.jpy.flag;
+                break;
+            case 'CHF': // Franc currency
+                var result = moneyAmount * cInfo.chf.wealth;
+                var currencyColor = cInfo.chf.color;
+                var emojiFlag = cInfo.chf.flag;
+                break;
+            case 'ARS': // Peso Argentino currency
+                var result = moneyAmount * cInfo.ars.wealth;
+                var currencyColor = cInfo.ars.color;
+                var emojiFlag = cInfo.ars.flag;
+                break;
+            case 'RMB': // Renmimbi currency
+                var result = moneyAmount * cInfo.rmb.wealth;
+                var currencyColor = cInfo.rmb.color;
+                var emojiFlag = cInfo.rmb.flag;
+                break;
+            case 'RUB': // Rublo currency
+                var result = moneyAmount * cInfo.rub.wealth;
+                var currencyColor = cInfo.rub.color;
+                var emojiFlag = cInfo.rub.flag;
+                break;
         }
-        else if (!currencies.includes(choosenCurrency)) {
-            message.reply(`Esse não é uma moeda suportada pelo bot. As moedas suportadas são \`${currencies}\`!`);
+
+        if (!choosenCurrency && !moneyAmount) { // Error 02: missing params to use
+            message.reply("Error 02: Está faltando paramêtros para o comando, tente `qbCurrency {moeda} (quantidade)`!");
         }
-        else {
-            switch (choosenCurrency) {
-                case 'EURO': // Euro currency
-                case 'EUR':
-                    var result = moneyAmount * currencyEUR;
-                    var currencyColor = '#003399';
-                    var emojiFlag = ":flag_eu:"
-                    break;
-                case 'DOLAR': // Dollar currency
-                case 'USD':
-                    var result = moneyAmount * currencyUSD;
-                    var currencyColor = '#3c3b6e';
-                    var emojiFlag = ":flag_us:"
-                    break;
-                case 'LIBRA': // Pounds currency
-                case 'GBP':
-                    var result = moneyAmount * currencyGBP;
-                    var currencyColor = '#c8102e';
-                    var emojiFlag = ":flag_gb:"
-                    break;
-                case 'YENE': // Yen currency
-                case 'JPY':
-                    var result = moneyAmount * currencyJPY;
-                    var currencyColor = '#bc002d';
-                    var emojiFlag = ":flag_jp:"
-                    break;
-                case 'FRANCO': // Franc currency
-                case 'CHF':
-                    var result = moneyAmount * currencyCHF;
-                    var currencyColor = '#002395';
-                    var emojiFlag = ":flag_ch:"
-                    break;
-                case 'PESOARG': // Peso Argentino currency
-                case 'ARS':
-                    var result = moneyAmount * currencyARS;
-                    var currencyColor = '#74acdf';
-                    var emojiFlag = ":flag_ar:"
-                    break;
-                case 'REMIMBI': // Remimbi currency
-                case 'RMB':
-                    var result = moneyAmount * currencyRMB;
-                    var currencyColor = '#de2910';
-                    var emojiFlag = ":flag_cn:"
-                    break;
-            }
-            const { QueBomBOT_ID } = require("../../config.json");
-            const ID = client.users.cache.get(QueBomBOT_ID);
-            const currencyEmbed = {
+        
+        if (currencies.includes(choosenCurrency) && !moneyAmount) { // Default embed to show base wealth compared to Real
+            var currencyEmbed = {
+                color: `${cInfo[cry].color}`,
+                author: {
+                    name: `${ID.username}`,
+                    icon_url: `${ID.displayAvatarURL()}`,
+                },
+                fields: [
+                    {
+                        name: `Um(a) ${cInfo[cry].name} ${cInfo[cry].flag} equivale à`,
+                        value: `${cInfo[cry].wealth} real(is) :flag_br:`,
+                    },
+                ],
+                footer: { text: `Última atualização em ${cInfo.last_updated}`}
+            };
+            message.channel.send({embed: currencyEmbed});
+        }
+
+        if (!currencies.includes(choosenCurrency) && !listOf.includes(choosenCurrency)) { // Error 03: currency not suported
+            message.reply(`Error 03: Moeda não suportada! Aceita-se \`${currencies}\``);
+        }
+
+        else if (currencies.includes(choosenCurrency) && moneyAmount >= 1) { // Final embed showing the currency and its wealth
+            
+            var currencyEmbed = {
                 color: `${currencyColor}`,
                 title: `Conversor de Moedas (${choosenCurrency} ${emojiFlag}  -> BRL :flag_br:)`,
                 author: {
@@ -82,7 +122,7 @@ module.exports = {
                         value: `${moneyAmount} -> ${result}`,
                     },
                 ],
-                footer: { text: 'Última atualização em 04/05/2021 às 19:23'}
+                footer: { text: `Última atualização em ${cInfo.last_updated}`}
             };
             message.channel.send({embed: currencyEmbed});
         }

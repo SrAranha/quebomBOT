@@ -1,0 +1,61 @@
+{
+    "last_updated":"26-06-2021 16:35",
+    "accepted":"USD, EUR, GBP, JPY, CHF, ARS, RMB,RUB",
+    "addParams": "MONEY, COINS, MOEDAS, MOEDA",
+
+    "usd": {
+        "color":"#3c3b6e",
+        "flag":":flag_us:",
+        "name":"Dolar",
+        "wealth":"4.93"
+    },
+
+    "eur": {
+        "color":"#003399",
+        "flag":":flag_eu:",
+        "name":"Euro",
+        "wealth":"5.89"
+    },
+    
+    "gbp": {
+        "color":"#c8102e",
+        "flag":":flag_gb:",
+        "name":"Libra Esterlina",
+        "wealth":"6.85"
+    },
+
+    "jpy": {
+        "color":"#bc002d",
+        "flag":":flag_jp:",
+        "name":"Yene",
+        "wealth":"0.045"
+    },
+    
+    "chf": {
+        "color":"#002395",
+        "flag":":flag_ch:",
+        "name":"Franco Suiço",
+        "wealth":"5.38"
+    },
+
+    "ars": {
+        "color":"#74acdf",
+        "flag":":flag_ar:",
+        "name":"Peso Argentino",
+        "wealth":"0.052"
+    },
+    
+    "rmb": {
+        "color":"#de2910",
+        "flag":":flag_cn:",
+        "name":"Renmimbi",
+        "wealth":"0.76"
+    },
+
+    "rub": {
+        "color":"#0039a6",
+        "flag":":flag_ru:",
+        "name":"Rublo",
+        "wealth":"0.068"
+    }
+}
