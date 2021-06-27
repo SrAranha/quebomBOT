@@ -1,53 +1,57 @@
 module.exports = {
-    name: 'help',
-    aliases: ['ajuda'],
-    description: 'Show all commands',
+    name: "help",
+    aliases: ["ajuda"],
+    description: "Show all commands",
     execute(message, args, client) {
         const { QueBomBOT_ID } = require("../../config.json");
         const ID = client.users.cache.get(QueBomBOT_ID);
         const helpEmbed = {
-            color: '#df8edd',
-            title: 'Comandos do QueBomBOT',
-            description: 'O prefixo para os comandos é `qb`',
+            color: "#df8edd",
+            title: "Comandos do QueBomBOT",
+            description: "O prefixo para os comandos é `qb`",
             thumbnail: {
                 url: `${ID.displayAvatarURL()}`
             },
             fields: [
                 {
-                    name: 'Argumentos',
-                    value: '{} = obrigatório \n () = opcional',
+                    name: "Argumentos",
+                    value: "{} = obrigatório \n () = opcional",
                 },
                 {
-                    name: 'Help',
-                    value: 'Mostra os comandos disponíveis com suas descrições.',
+                    name: "Aranha, Kuro, Marvin, Pepinow, Pirao, Poleza",
+                    value: "Mostra as redes sociais dos membros do QueBom.",
                 },
                 {
-                    name: 'Aranha, Kuro, Marvin, Pepinow, Pirao, Poleza',
-                    value: 'Mostra as redes sociais dos membros do QueBom.',
+                    name: "Avatar (Usuário)",
+                    value: "Mostra o avatar do usuário que chamou o comando ou o usuário mencionado.",
                 },
                 {
-                    name: 'Convite',
-                    value: 'Envia o link para convite do servidor do QueBom Oficial.',
+                    name: "Calc {Operação}",
+                    value: "Comando que calcula a operação enviada. Função ainda em construção.",
                 },
                 {
-                    name: 'QBomCAST',
-                    value: 'Mostra o que é o QueBomCAST',
+                    name: "Convite",
+                    value: "Envia o link para convite do servidor do QueBom Oficial.",
                 },
                 {
-                    name: 'Ping',
-                    value: 'Pong!',
+                    name: "Currency {Moeda} {Quantidade}",
+                    value: "Faz a conversão de algumas moedas para o Real.",
                 },
                 {
-                    name: 'Currency {Moeda} {Quantidade}',
-                    value: 'Faz a conversão de algumas moedas para o Real.',
+                    name: "Help",
+                    value: "Mostra os comandos disponíveis com suas descrições.",
                 },
                 {
-                    name: 'Avatar (Usuário)',
-                    value: 'Mostra o avatar do usuário que chamou o comando ou o usuário mencionado.',
+                    name: "Ping",
+                    value: "Pong!",
                 },
                 {
-                    name: 'Calc {Operação}',
-                    value: 'Comando que calcula a operação enviada. Função ainda em construção.',
+                    name: "QBomCAST",
+                    value: "Mostra o que é o QueBomCAST.",
+                },
+                {
+                    name: "Report",
+                    value: "Comando exclusivo para reportar problemas e outras coisas para o QueBomBOT.",
                 },
             ],
             timestamp: new Date(),
