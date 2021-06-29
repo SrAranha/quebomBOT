@@ -3,9 +3,9 @@ module.exports = {
     aliases: ['kurinho'],
     description: 'Kuro\'s info',
     execute(message, args, client) {
-        const { Kuro_ID, QueBomBOT_ID } = require("../../config.json");
+        const { Kuro_ID, queBomBOT_ID } = require("../../config.json");
         var ID = client.users.cache.get(Kuro_ID);
-        if (!ID) { var ID = client.users.cache.get(QueBomBOT_ID); };
+        if (!ID) { var ID = client.users.cache.get(queBomBOT_ID); };
         
         const profileEmbed = {
             color: '#000000',
