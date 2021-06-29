@@ -5,8 +5,8 @@ module.exports = {
     args: true,
     execute(message, args, client) {
         const { queBomBOT_ID } = require("../../config.json");
-        const rptMessage = args.slice(0).join(' ');
         const ID = client.users.cache.get(queBomBOT_ID);
+        const rptMessage = args.slice(0).join(' ');
         const reportChannel = client.channels.cache.find(channel => channel.id === "855534581951365161");
  
         const reportEmbed = {
