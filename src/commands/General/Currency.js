@@ -15,6 +15,10 @@ module.exports = {
         const moneyAmount = parseInt(args.slice(1).join(' '));
         const cry = choosenCurrency.toLowerCase();
         
+        const result = moneyAmount * cInfo[cry].wealth;
+        const currencyColor = cInfo[cry].color;
+        const emojiFlag = cInfo[cry].flag;
+        
         if (!choosenCurrency) { // Error 01: no specified currency
             message.reply(`Error 01: Moeda não específicada! Aceita-se \`${currencies}\``);
         }
@@ -36,49 +40,6 @@ module.exports = {
                 timestamp: new Date(),
             };
             message.channel.send({embed: currencyEmbed});
-        }
-
-        switch (choosenCurrency) { // Which currency will be working with
-            case 'EUR': // Euro currency
-                var result = moneyAmount * cInfo.eur.wealth;
-                var currencyColor = cInfo.eur.color;
-                var emojiFlag = cInfo.eur.flag;
-                break; 
-            case 'USD': // Dollar currency
-                var result = moneyAmount * cInfo.usd.wealth;
-                var currencyColor = cInfo.usd.color;
-                var emojiFlag = cInfo.usd.flag;
-                break;
-            case 'GBP': // Pounds currency
-                var result = moneyAmount * cInfo.gbp.wealth;
-                var currencyColor = cInfo.gbp.color;
-                var emojiFlag = cInfo.gbp.flag
-                break;
-            case 'JPY': // Yen currency
-                var result = moneyAmount * cInfo.jpy.wealth;
-                var currencyColor = cInfo.jpy.color;
-                var emojiFlag = cInfo.jpy.flag;
-                break;
-            case 'CHF': // Franc currency
-                var result = moneyAmount * cInfo.chf.wealth;
-                var currencyColor = cInfo.chf.color;
-                var emojiFlag = cInfo.chf.flag;
-                break;
-            case 'ARS': // Peso Argentino currency
-                var result = moneyAmount * cInfo.ars.wealth;
-                var currencyColor = cInfo.ars.color;
-                var emojiFlag = cInfo.ars.flag;
-                break;
-            case 'RMB': // Renmimbi currency
-                var result = moneyAmount * cInfo.rmb.wealth;
-                var currencyColor = cInfo.rmb.color;
-                var emojiFlag = cInfo.rmb.flag;
-                break;
-            case 'RUB': // Rublo currency
-                var result = moneyAmount * cInfo.rub.wealth;
-                var currencyColor = cInfo.rub.color;
-                var emojiFlag = cInfo.rub.flag;
-                break;
         }
 
         if (!choosenCurrency && !moneyAmount) { // Error 02: missing params to use
