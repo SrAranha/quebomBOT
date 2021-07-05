@@ -83,7 +83,7 @@ module.exports = {
                 if (command.modOnly) {
                     var cmdMod = "Sim, é um comando exclusivo de moderadores."
                 }
-                var cmdArgs = "Não há argumentos para este comando.";
+                var cmdArgs = "Não há argumentos adicionais para este comando.";
                 if (command.listArgs) {
                     var cmdArgs = command.listArgs;
                 }
