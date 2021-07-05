@@ -1,9 +1,10 @@
 module.exports = {
     name: "delete",
     aliases: ["deletar", "dlt"],
-    description: "Deletes an amount of messages",
-    args: true,
+    description: "Deleta mensagens que não passam de duas semanas.",
+    args: "{nº de mensagens}",
     guildOnly: true,
+    modOnly: true,
     execute(message, args) {
         if (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("MANAGE_MESSAGES")) { 
             const messagesTarget = parseInt(args.slice(0).join(' '));

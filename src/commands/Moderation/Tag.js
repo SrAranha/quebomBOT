@@ -1,8 +1,10 @@
 module.exports = {
-    name: 'tag',
-    aliases: ['addrole','role'],
-    description: 'Give an role to the mentioned user',
+    name: "tag",
+    aliases: ["addrole","role"],
+    description: "Dá o cargo especifícado ao usuário mencionado.",
     guildOnly: true,
+    modOnly: true,
+    args: "{Usuário} {Cargo}",
     execute(message) {
         if (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("MANAGE_ROLES")) { 
             const member = message.mentions.members.first();
@@ -10,7 +12,7 @@ module.exports = {
             const auditLog_QBom = require ("../../config.json")
             const auditLog = message.guild.channels.cache.find(channel => channel.id === auditLog_QBom);
             const tagEmbed = {
-                color: '#4EFF00',
+                color: "#4EFF00",
                 title: `Cargo ${role.name} dado à ${member.user.tag}`,
                 author: {
                     name: `${message.author.tag}`,
@@ -22,6 +24,6 @@ module.exports = {
             member.roles.add(role);
             auditLog.send({embed: tagEmbed});
         }
-        else (message.reply('você **não** tem permissão para usar este comando!'));
+        else (message.reply("você **não** tem permissão para usar este comando!"));
     }
 }

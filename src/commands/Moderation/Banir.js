@@ -1,12 +1,14 @@
 module.exports = {
-    name: 'banir',
-    aliases: ['ban'],
-    description: 'Bans user mentioned from the guild',
+    name: "banir",
+    aliases: ["ban"],
+    description: "Bane o membro mencionado.",
     guildOnly: true,
+    modOnly: true,
+    args: "{Usuário}",
     execute(message, args) {
         if (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("BAN_MEMBERS")) { 
             const member = message.mentions.members.first();
-            const reason = args.slice(1).join(' ');
+            const reason = args.slice(1).join(" ");
             const auditLog_QBom = require ("../../config.json")
             const auditLog = message.guild.channels.cache.find(channel => channel.id === auditLog_QBom);
             if (member != String) {
@@ -14,7 +16,7 @@ module.exports = {
             }
             else {
                 const bannedEmbed = {
-                    color: '#F80000',
+                    color: "#F80000",
                     title: `Usuário banido: ${member.user.tag}`,
                     author: {
                         name: `${message.author.tag}`,
@@ -22,7 +24,7 @@ module.exports = {
                     },
                     fields: [
                         {
-                            name: 'Motivo:',
+                            name: "Motivo:",
                             value: `${reason}.`,
                         },
                     ],
@@ -33,6 +35,6 @@ module.exports = {
                 auditLog.send({embed: bannedEmbed});
             }
         }   
-        else (message.reply('você **não** tem permissão para usar este comando!'));
+        else (message.reply("você **não** tem permissão para usar este comando!"));
     }
 }

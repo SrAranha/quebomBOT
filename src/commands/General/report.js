@@ -1,8 +1,8 @@
 module.exports = {
     name: "report",
     aliases: ["reportar"],
-    description: "Command to report things/actions related to QueBomBOT",
-    args: true,
+    description: "Comando exclusivo para reportar problemas e outras coisas para o QueBomBOT.",
+    args: "{mensagem}",
     execute(message, args, client) {
         const { queBomBOT_ID } = require("../../config.json");
         const ID = client.users.cache.get(queBomBOT_ID);

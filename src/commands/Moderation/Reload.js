@@ -3,16 +3,19 @@ const fs = require("fs");
 module.exports = {
     name: "reload",
     aliases: ["restart", "rld"],
-    description: "Reloads a command",
-    args: true,
+    description: "Reloads a command. Exclusive command for Sr_Aranha",
+    args: "{comando}",
+    modOnly: true,
     execute(message, args) {
         const { AranhaBoladona_ID } = require("../../config.json");
         //Checks if its me (Sr_Aranha) who passes the command
-        if (!message.author.id === AranhaBoladona_ID)
-            return message.reply("você não tem permissão para utilizar este comando");
+        if (!message.author.id === AranhaBoladona_ID) {
+            message.reply("você não tem permissão para utilizar este comando");
+        }
 
-        if (!args.length)
-            return message.reply("Você não passou comando algum para recarregar.");
+        if (!args.length) {
+            message.reply("Você não passou comando algum para recarregar.");
+        }
 
         const commandName = args[0].toLowerCase();
         const command =
@@ -22,7 +25,7 @@ module.exports = {
             );
 
         if (!command) {
-            return message.reply(`Não tem comando com o nome \`${commandName}\`.`);
+            message.reply(`Não tem comando com o nome \`${commandName}\`.`);
         }
 
         const commandFolders = fs.readdirSync("./commands");
