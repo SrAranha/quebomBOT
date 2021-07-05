@@ -1,6 +1,6 @@
 module.exports = { 
     name: "modhelp",
-    description: "Show help list with mod\"s commands",
+    description: "Mostra os comandos disponíveis para moderadores com suas descrições.",
     guildOnly: true,
     execute(message) {
         const modEmbed = {
@@ -58,6 +58,67 @@ module.exports = {
             ],
             timestamp: new Date(),
         };
-        message.channel.send({embed: modEmbed});
+
+        if (!args[0]) {
+            message.channel.send({embed: helpEmbed});
+        }
+        if (args[0]) {
+            const commandName = args[0].toLowerCase();
+            const command =
+                message.client.commands.get(commandName) ||
+                message.client.commands.find(
+                    (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
+                );
+            if (!command) {
+                return message.reply(`Não tem comando com o nome \`${commandName}\`.`);
+            }
+            if (command) {
+                var cmdUse = `qb${command.name}`;
+                if (command.args) {
+                    var cmdUse = `qb${command.name} [argumento]`;
+                }
+                var cmdAliases = command.aliases;
+                if (!cmdAliases) {
+                    var cmdAliases = "Este comando não tem aliases/apelidos.";
+                }
+                var cmdMod = "Não, é um comando de uso público.";
+                if (command.modOnly) {
+                    var cmdMod = "Sim, é um comando exclusivo de moderadores."
+                }
+                var cmdArgs = "Não há argumentos para este comando.";
+                if (command.listArgs) {
+                    var cmdArgs = command.listArgs;
+                }
+                
+                const cmdEmbed = {
+                    color: "#df8edd",
+                    title: `Descrição do ${command.name}`,
+                    description: `${command.description}`,
+                    thumbnail: {
+                        url: `${ID.displayAvatarURL()}`
+                    },
+                    fields: [
+                        {
+                            name: "Uso do comando:",
+                            value: `\`${cmdUse}\``,
+                        },
+                        {
+                            name: "Aliases/apelidos desse comando que pode ser trocado pelo nome:",
+                            value: `\`${cmdAliases}\``,
+                        },
+                        {
+                            name: "Possíveis argumentos adicionais do comando:",
+                            value: `\`${cmdArgs}\``,
+                        },
+                        {
+                            name: "Comando exclusivo para moderadores?",
+                            value: `\`${cmdMod}\``,
+                        },
+                    ],
+                    timestamp: new Date(),
+                }
+                message.channel.send({embed: cmdEmbed});
+            }
+        }
     }
 }
