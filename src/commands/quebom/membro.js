@@ -10,7 +10,23 @@ module.exports = {
         const getMember = args[0];
 
         if (!getMember) {
-            message.reply(`Você precisa indicar qual membro quer: \`${mInfo.memberList}\``);
+            var ID = client.users.cache.get(queBomBOT_ID);
+            var memberList = {
+                color: "#df8edd",
+                title: "Lista dos membros do QueBom",
+                author: {
+                    name: `${ID.username}`,
+                    icon_url: `${ID.displayAvatarURL()}`
+                },
+                fields: [
+                    {
+                        name: "Membros atuais do QueBom",
+                        value: `\`${mInfo.memberList}\``,
+                    },
+                ],
+                timestamp: new Date(),
+            };
+            message.channel.send({embed: memberList});
         }
         else {
             var member = getMember.toLowerCase();
@@ -22,6 +38,18 @@ module.exports = {
                 if (!ID) { 
                     var ID = client.users.cache.get(queBomBOT_ID);
                 };
+                var memberTwitch = mInfo[member].twitch;
+                if (!memberTwitch) {
+                    var memberTwitch = "Este membro não possuí tal rede.";
+                }
+                var memberTwitter = mInfo[member].twitter;
+                if (!memberTwitter) {
+                    var memberTwitter = "Este membro não possuí tal rede.";
+                }
+                var memberYt = mInfo[member].youtube;
+                if (!memberYt) {
+                    var memberYt = "Este membro não possuí tal rede.";
+                }
                 const memberEmbed = {
                     color: `${mInfo[member].color}`,
                     title: `Redes sociais de ${mInfo[member].name}`,
@@ -31,16 +59,16 @@ module.exports = {
                     },
                     fields: [
                         {
-                            name: "Twitch",
-                            value: `${mInfo[member].twitch}`,
+                            name: `Twitch ${mInfo.emojis.twitch}`,
+                            value: `${memberTwitch}`,
                         },
                         {
-                            name: "Twitter",
-                            value:  `${mInfo[member].twitter}`,
+                            name: `Twitter ${mInfo.emojis.twitter}`,
+                            value:  `${memberTwitter}`,
                         },
                         {
-                            name: "Youtube",
-                            value:  `${mInfo[member].youtube}`,
+                            name: `Youtube ${mInfo.emojis.youtube}`,
+                            value:  `${memberYt}`,
                         },
                     ],
                     timestamp: new Date(),

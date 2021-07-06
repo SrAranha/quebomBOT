@@ -1,6 +1,11 @@
 {
-    "memberList": ["aranha", "kuro", "marvin", "pepinow", "pirao", "poleza"],
-
+    "emojis": {
+        "youtube": "<:youtube:748198748974481498>",
+        "twitter": "<:twitter:862082357883174922>",
+        "twitch": "<:twitch:748198709464137780>"
+    },
+    "memberList": ["aranha", "brunao", "jaames", "kuro", "marvin", "pepinow", "pirao", "poleza"],
+    
     "aranha": {
         "name": "Aranha",
         "color": "#7000BF",
@@ -8,6 +13,21 @@
         "twitch": "https://bit.ly/3jRmNfF",
         "twitter": "https://bit.ly/30b0XMb",
         "youtube": "https://bit.ly/3fgp7sR"
+    },
+    "brunao": {
+        "name": "Brunão",
+        "color": "#00FFC0",
+        "id": "269967319718035458",
+        "twitch": "https://bit.ly/36jqo0y",
+        "twitter": "https://bit.ly/3hzhnFy"
+    },
+    "jaames": {
+        "name": "Jaames",
+        "color": "#5CB743",
+        "id": "235821794311798795",
+        "twitch": "https://bit.ly/36eSY2Y",
+        "twitter": "https://bit.ly/3hjH26g",
+        "youtube": "https://bit.ly/2UtuSyG"
     },
     "kuro": {
         "name": "Kuro",
