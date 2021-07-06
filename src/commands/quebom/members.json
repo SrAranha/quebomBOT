@@ -1,0 +1,52 @@
+{
+    "memberList": ["aranha", "kuro", "marvin", "pepinow", "pirao", "poleza"],
+
+    "aranha": {
+        "name": "Aranha",
+        "color": "#7000BF",
+        "id": "227887537102782464",
+        "twitch": "https://bit.ly/3jRmNfF",
+        "twitter": "https://bit.ly/30b0XMb",
+        "youtube": "https://bit.ly/3fgp7sR"
+    },
+    "kuro": {
+        "name": "Kuro",
+        "color": "#000000",
+        "id": "165883953977229322",
+        "twitch": "https://bit.ly/3k35b0u",
+        "twitter": "https://bit.ly/2UiomIS",
+        "youtube": "https://bit.ly/2QHSVW2"
+    },
+    "marvin": {
+        "name": "Marvin",
+        "color": "#1B90C6",
+        "id": "242419392204242955",
+        "twitch": "https://bit.ly/3gdxuXs",
+        "twitter": "https://bit.ly/2Xa0WWT",
+        "youtube": "https://bit.ly/3373pFr"
+    },
+    "pepinow": {
+        "name": "Pepinow",
+        "color": "#2F6D32",
+        "id": "249982719537315841",
+        "twitch": "https://bit.ly/2WI8bWz",
+        "twitter": "https://bit.ly/2Uw7Dk9",
+        "youtube": "https://bit.ly/2J9fYVF"
+    },
+    "pirao": {
+        "name": "Pirão",
+        "color": "#CB5A07",
+        "id": "230428079208529920",
+        "twitch": "https://bit.ly/2QKfjho",
+        "twitter": "https://bit.ly/3aixUJf",
+        "youtube": "https://bit.ly/33JW4dp"
+    },
+    "poleza": {
+        "name": "Poleza",
+        "color": "#874B0C",
+        "id": "307336180217937931",
+        "twitch": "https://bit.ly/39f6Qtg",
+        "twitter": "https://bit.ly/39f8Cuf",
+        "youtube": "https://bit.ly/39k0AQO"
+    }
+}

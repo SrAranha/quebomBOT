@@ -18,10 +18,6 @@ module.exports = {
                     value: "{} = obrigatório \n () = opcional",
                 },
                 {
-                    name: "Aranha, Kuro, Marvin, Pepinow, Pirao, Poleza",
-                    value: "Mostra as redes sociais dos membros do QueBom.",
-                },
-                {
                     name: "Avatar (Usuário)",
                     value: "Mostra o avatar/ícone do usuário que chamou o comando ou o usuário mencionado.",
                 },
@@ -40,6 +36,10 @@ module.exports = {
                 {
                     name: "Help (Comando)",
                     value: "Mostra todos os comandos. Se especificado, mostra a descrição do tal.",
+                },
+                {
+                    name: "Membro {Membro}",
+                    value: "Mostra as redes sociais dos membros do QueBom.",
                 },
                 {
                     name: "Ping",

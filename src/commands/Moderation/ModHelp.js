@@ -5,7 +5,7 @@ module.exports = {
     execute(message) {
         const modEmbed = {
             color: "#df8edd",
-            title: "Comandos para moderadores do QueBomBOT",
+            title: "Mostra os comandos disponíveis para moderadores com suas descrições.",
             description: "O prefixo para os comandos é `qb`",
             thumbnail: {
                 url: "https://i.imgur.com/zYPqM6S.jpg"
