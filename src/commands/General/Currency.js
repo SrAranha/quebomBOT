@@ -12,16 +12,16 @@ module.exports = {
         
         const currencies = cInfo.accepted;
         
-        const choosenCurrency = args.slice(0,1).join(' ').toLowerCase();
+        const cry = args.slice(0,1).join(' ').toLowerCase();
         const moneyAmount = parseInt(args.slice(1).join(' '));
 
-        if (currencies.includes(choosenCurrency)) {
+        if (currencies.includes(cry)) {
             var result = moneyAmount * cInfo[cry].wealth;
             var currencyColor = cInfo[cry].color;
             var emojiFlag = cInfo[cry].flag;;
         };
 
-        if (this.listArgs.includes(choosenCurrency) && !moneyAmount || moneyAmount == 1) { // Embed showing accepted currencies
+        if (this.listArgs.includes(cry) && !moneyAmount || moneyAmount == 1) { // Embed showing accepted currencies
             var currencyEmbed = {
                 color: "#df8edd",
                 title: "Moedas suportadas pelo QueBomBOT.",
@@ -40,7 +40,7 @@ module.exports = {
             message.channel.send({embed: currencyEmbed});
         };
         
-        if (currencies.includes(choosenCurrency) && !moneyAmount) { // Default embed to show base wealth compared to Real
+        if (currencies.includes(cry) && !moneyAmount) { // Default embed to show base wealth compared to Real
             var currencyEmbed = {
                 color: `${cInfo[cry].color}`,
                 author: {
@@ -58,22 +58,22 @@ module.exports = {
             message.channel.send({embed: currencyEmbed});
         };
 
-        if (!currencies.includes(choosenCurrency) && !this.listArgs.includes(choosenCurrency)) { // Error 01: currency not suported
+        if (!currencies.includes(cry) && !this.listArgs.includes(cry)) { // Error 01: currency not suported
             message.reply(`Error 01: Moeda não suportada! Aceita-se \`${currencies}\``);
         };
 
-        if (currencies.includes(choosenCurrency) && moneyAmount >= 2) { // Final embed showing the currency and its wealth
+        if (currencies.includes(cry) && moneyAmount >= 2) { // Final embed showing the currency and its wealth
             
             var currencyEmbed = {
                 color: `${currencyColor}`,
-                title: `Conversor de Moedas (${choosenCurrency} ${emojiFlag}  -> BRL :flag_br:)`,
+                title: `Conversor de Moedas (${cry} ${emojiFlag}  -> BRL :flag_br:)`,
                 author: {
                     name: `${ID.username}`,
                     icon_url: `${ID.displayAvatarURL()}`,
                 },
                 fields: [
                     {
-                        name: `${choosenCurrency} ${emojiFlag} -> BRL :flag_br:`,
+                        name: `${cry} ${emojiFlag} -> BRL :flag_br:`,
                         value: `${moneyAmount} -> ${result}`,
                     },
                 ],
