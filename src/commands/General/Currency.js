@@ -21,7 +21,7 @@ module.exports = {
             var emojiFlag = cInfo[cry].flag;;
         };
 
-        if (this.listArgs.includes(cry) && !moneyAmount || moneyAmount == 1) { // Embed showing accepted currencies
+        if (!args[0]) { // Embed showing accepted currencies
             var currencyEmbed = {
                 color: "#df8edd",
                 title: "Moedas suportadas pelo QueBomBOT.",
@@ -58,22 +58,18 @@ module.exports = {
             message.channel.send({embed: currencyEmbed});
         };
 
-        if (!currencies.includes(cry) && !this.listArgs.includes(cry)) { // Error 01: currency not suported
-            message.reply(`Error 01: Moeda não suportada! Aceita-se \`${currencies}\``);
-        };
-
         if (currencies.includes(cry) && moneyAmount >= 2) { // Final embed showing the currency and its wealth
-            
+
             var currencyEmbed = {
                 color: `${currencyColor}`,
-                title: `Conversor de Moedas (${cry} ${emojiFlag}  -> BRL :flag_br:)`,
+                title: `Conversor de Moedas (${cry.toUpperCase()} ${emojiFlag}  -> BRL :flag_br:)`,
                 author: {
                     name: `${ID.username}`,
                     icon_url: `${ID.displayAvatarURL()}`,
                 },
                 fields: [
                     {
-                        name: `${cry} ${emojiFlag} -> BRL :flag_br:`,
+                        name: `${cry.toUpperCase()} ${emojiFlag} -> BRL :flag_br:`,
                         value: `${moneyAmount} -> ${result}`,
                     },
                 ],
