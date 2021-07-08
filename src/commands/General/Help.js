@@ -53,6 +53,10 @@ module.exports = {
                     name: "Report {Mensagem}",
                     value: "Comando exclusivo para reportar problemas e outras coisas para o QueBomBOT.",
                 },
+                {
+                    name: "Talk {entrar/sair/texto}",
+                    value: "Comando para que o bot entre no canal de voz e diga o texto indicado.",
+                },
             ],
             timestamp: new Date(),
         };

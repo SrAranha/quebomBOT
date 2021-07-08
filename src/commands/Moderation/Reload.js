@@ -27,38 +27,39 @@ module.exports = {
         if (!command) {
             message.reply(`Não tem comando com o nome \`${commandName}\`.`);
         }
-
-        const commandFolders = fs.readdirSync("./commands");
-
-        let folderName;
-
-        commandFolders.map((folder) => {
-            fs.readdirSync(`${__dirname}/../${folder}/`).find((element) => {
-                if (element === `${command.name}.js`) {
-                    delete require.cache[
-                    require.resolve(`../${folder}/${command.name}.js`)
-                    ];
-
-                folderName = folder;
-                }
+        if (command) {
+            const commandFolders = fs.readdirSync("./commands");
+            
+            let folderName;
+            
+            commandFolders.map((folder) => {
+                fs.readdirSync(`${__dirname}/../${folder}/`).find((element) => {
+                    if (element === `${command.name}.js`) {
+                        delete require.cache[
+                            require.resolve(`../${folder}/${command.name}.js`)
+                        ];
+                        
+                        folderName = folder;
+                    }
+                });
             });
-        });
-
-        try {
-            const newCommand = require(`../${folderName}/${command.name}.js`);
-            message.client.commands.set(newCommand.name, newCommand);
-            console.log("\x1b[35m%s\x1b[0m", `Command ${newCommand.name} was reloaded!`);
-        } catch (error) {
-            console.error(error);
-            message.channel.send(
-                `There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``
-            );
-        }
-        if (message.channel.type === 'dm') {
-            return;
-        }
-        else if (message.channel.type === 'text') {
-            message.delete();
+            
+            try {
+                const newCommand = require(`../${folderName}/${command.name}.js`);
+                message.client.commands.set(newCommand.name, newCommand);
+                console.log("\x1b[35m%s\x1b[0m", `Command ${newCommand.name} was reloaded!`);
+            } catch (error) {
+                console.error(error);
+                message.channel.send(
+                    `There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``
+                    );
+                }
+            if (message.channel.type === 'dm') {
+                return;
+            }
+            else if (message.channel.type === 'text') {
+                message.delete();
+            }
         }
     },
 };
