@@ -24,7 +24,6 @@ module.exports = {
             if (msg != "sair" && msg != "entrar" && msg != undefined) { 
                 channel.join();
                 var tts = googleTTS.getAudioUrl(args.slice(0).join(' '), { lang: "pt-BR" });
-                console.log(tts);
                 async function play(voiceChannel) {
                     const connection = await voiceChannel.join();
                     connection.play(tts);
