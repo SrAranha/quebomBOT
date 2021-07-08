@@ -14,6 +14,10 @@ module.exports = {
             },
             fields: [
                 {
+                    name: "Por questões de limitação, a lista completa de comandos está no link abaixo.",
+                    value: "https://github.com/SrAranha/quebomBOT/blob/master/README.md",
+                },
+                {
                     name: "Argumentos",
                     value: "{} = obrigatório \n () = opcional",
                 },
@@ -42,20 +46,12 @@ module.exports = {
                     value: "Mostra as redes sociais dos membros do QueBom.",
                 },
                 {
-                    name: "Ping",
-                    value: "Pong!",
-                },
-                {
                     name: "QBomCAST",
                     value: "Mostra o que é o QueBomCAST.",
                 },
                 {
                     name: "Report {Mensagem}",
                     value: "Comando exclusivo para reportar problemas e outras coisas para o QueBomBOT.",
-                },
-                {
-                    name: "Talk {entrar/sair/texto}",
-                    value: "Comando para que o bot entre no canal de voz e diga o texto indicado.",
                 },
             ],
             timestamp: new Date(),
