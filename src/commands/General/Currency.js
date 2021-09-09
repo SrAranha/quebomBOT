@@ -19,7 +19,7 @@ module.exports = {
             cry = cry.toString();
             var loading = "<a:qbloading:885334786254708796>";
             message.channel.send(`${loading} Pegando as informações ${loading}`).then(msg => msg.delete({timeout: 2500}));
-            const browser = await puppeteer.launch({headless: false});
+            const browser = await puppeteer.launch();
             const page = await browser.newPage();
             const wealthURL = `https://www.google.com.br/search?q=${qnt}+${cry}+para+real`;
             await page.goto(wealthURL);
