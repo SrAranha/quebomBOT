@@ -18,7 +18,6 @@ module.exports = {
             }
             const cfg = fs.readFileSync(path.resolve(__dirname, 'tinfo.json'));
             const tInfo = JSON.parse(cfg);
-            console.log(tInfo);
 
             const addArgs = ["sair", "entrar", "lang", "set"];
             const server = "server_" + message.guild.id;
