@@ -6,9 +6,9 @@ const googleTTS = require('google-tts-api');
 module.exports = {
     name: "talk",
     aliases: ["falar", "fale", "tts"],
-    args: "{entrar/sair/texto/set {idioma}}",
+    args: "{entrar/sair/lang/texto/set {idioma}}",
     description: "Comando para que o bot entre no canal de voz e diga o texto indicado.",
-    execute(message, args) {
+    execute(message, args, client) {
         if (message.member.voice.channel) {
             message.delete();
             
@@ -33,7 +33,30 @@ module.exports = {
                     const enterChl = channel.join();
                 }
                 if (msg == "lang") { // Link to availiable languages
-                    message.reply("As linguagens disponíveis pro bot estão neste link: \n https://cloud.google.com/speech-to-text/docs/languages");
+                    var { queBomBOT_ID } = require("../../config.json");
+                    var ID = client.users.cache.get(queBomBOT_ID);
+                    var langTTS = tInfo[server].lang;
+                    if (!langTTS) {
+                        var langTTS = "pt-BR";                        
+                    }
+                    var langEmbed = {
+                        color: "#df8edd",
+                        title: "Idiomas do TTS",
+                        thumbnail: {
+                            url: `${ID.displayAvatarURL()}`
+                        },
+                        fields: [
+                            {
+                                name: "O idioma atual desse servidor é:",
+                                value: langTTS,
+                            },
+                            {
+                                name: "Para saber quais os idiomas suportados pelo bot, entre no link abaixo: ",
+                                value: "https://cloud.google.com/speech-to-text/docs/languages",
+                            }
+                        ]
+                    }
+                    message.channel.send({embed: langEmbed})
                 }
                 if (msg.length >= 201) { // Text limit = 200 characters
                     message.reply("O texto pode ter no máximo 200 caracteres.");
