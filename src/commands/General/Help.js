@@ -26,10 +26,6 @@ module.exports = {
                     value: "Mostra o avatar/ícone do usuário que chamou o comando ou o usuário mencionado.",
                 },
                 {
-                    name: "Calc {Operação}",
-                    value: "Comando que calcula a operação enviada. Função ainda em construção.",
-                },
-                {
                     name: "Convite",
                     value: "Envia o link para convite do servidor do QueBom Oficial.",
                 },
@@ -56,6 +52,8 @@ module.exports = {
             ],
             timestamp: new Date(),
         };
+
+        //Dynamical help command
 
         if (!args[0]) {
             message.channel.send({embed: helpEmbed});
