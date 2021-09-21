@@ -1,10 +1,10 @@
-// ignore .json
+// ignore config.json
 config.json
-// ignore .html
+// ignore all .html files
 *.html
 // ignore code-workspace
 *.code-workspace
-// ignore testes.js
-testes.js
-// ignore node_modules
+// ignore testes (folder)
+testes
+// ignore node_modules (folder)
 node_modules
