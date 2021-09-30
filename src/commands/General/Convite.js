@@ -1,14 +1,18 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
 module.exports = {
-    name: "convite",
-    aliases: ["invite"],
-    description: "Envia o link para convite do servidor do QueBom Oficial.",
-    execute(message) {
+    data: new SlashCommandBuilder()
+    .setName('convite')
+    .setDescription('Envia o link para convite do servidor do QueBom Oficial.'),
+    async execute(interaction) {
+        const { queBomBOT_ID } = require('../../config.json');
+        const id = interaction.client.users.cache.get(queBomBOT_ID);
         const inviteEmbed = {
             color: "#df8edd",
             title: "Convite para o servidor do QueBom Oficial",
             description: "Utilize este link para convidar outras pessoas para o servidor!",
             thumbnail: {
-                url: "https://i.imgur.com/zYPqM6S.jpg",
+                url: `${id.displayAvatarURL()}`,
             },            
             fields: [
                 {
@@ -21,6 +25,6 @@ module.exports = {
                 text: "Chama todo mundo ai namoral!"
             }
         };
-        message.channel.send({embed: inviteEmbed});
+        interaction.reply({ embeds: [inviteEmbed] });
     }
 }

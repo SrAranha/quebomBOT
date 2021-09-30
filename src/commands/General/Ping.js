@@ -1,10 +1,11 @@
-module.exports = {
-	name: "ping",
-	description: "Ping!",
-	execute(message, args, client) {
-		const ms = new Date().getMilliseconds();
-		message.channel.send(`Pong! ${ms}ms (quando tiver host certo vai tá bom)`);
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
-		// for tests purposes
-	}
-}
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('ping')
+		.setDescription('Replies with Pong!'),
+	async execute(interaction) {
+		const ping = await interaction.reply({ content: 'Pingando...', fetchReply: true});
+		interaction.editReply(`Ping de ${ping.createdTimestamp - interaction.createdTimestamp}ms`)
+	},
+};

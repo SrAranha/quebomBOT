@@ -1,25 +1,26 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { Permissions } = require('discord.js')
+
 module.exports = {
-    name: "delete",
-    aliases: ["deletar", "dlt"],
-    description: "Deleta mensagens que não passam de duas semanas.",
-    args: "{nº de mensagens}",
-    guildOnly: true,
-    modOnly: true,
-    execute(message, args) {
-        if (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("MANAGE_MESSAGES")) { 
-            const messagesTarget = parseInt(args.slice(0).join(' '));
-            if (!messagesTarget) {
-                message.reply("Você **não** proveu argumentos para o comando!");
+	data: new SlashCommandBuilder()
+		.setName('delete')
+		.setDescription('Deleta mensagens que não passam de duas semanas.')
+        .addIntegerOption(qnt =>
+            qnt.setName('quantidade')
+            .setDescription('Quantas mensagens que deseja deletar.')
+            .setRequired(true)),
+	async execute(interaction) {
+        const memberPerms = interaction.member.permissions;
+        if (memberPerms.has(Permissions.FLAGS.ADMINISTRATOR) || memberPerms.has(Permissions.FLAGS.MANAGE_MESSAGES)) {
+            const qnt = interaction.options.getInteger('quantidade');
+            if (qnt > 100) {
+                interaction.reply({ content: "O número máximo de mensagens para deletar é 100." , ephemeral: true});                
             }
-            if (messagesTarget > 100) {
-                message.reply("O máximo de mensagens para serem deletadas é **100**");
+            else if (qnt < 101) {
+                interaction.channel.bulkDelete(qnt);
+                interaction.reply({ content: `${qnt} mensagens foram deletadas`, ephemeral: true });
             }
-            else if (messagesTarget <= 100) { 
-                message.delete();
-                message.channel.bulkDelete(messagesTarget);
-                message.channel.send(`Deletando ${messagesTarget} mensagens.`).then(msg => msg.delete({timeout: 3000}));
-            }
-        }   
-        else (message.reply("você **não** tem permissão para usar este comando!"));
+        }
+        else interaction.reply({ content: "Você **não** tem permissão para usar este comando.", ephemeral: true });
     }
 }

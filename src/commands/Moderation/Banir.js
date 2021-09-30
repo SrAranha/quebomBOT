@@ -1,40 +1,47 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { Permissions } = require('discord.js')
+
 module.exports = {
-    name: "banir",
-    aliases: ["ban"],
-    description: "Bane o membro mencionado.",
-    guildOnly: true,
-    modOnly: true,
-    args: "{Usuário}",
-    execute(message, args) {
-        if (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("BAN_MEMBERS")) { 
-            const member = message.mentions.members.first();
-            const reason = args.slice(1).join(" ");
-            const auditLog_QBom = require ("../../config.json")
-            const auditLog = message.guild.channels.cache.find(channel => channel.id === auditLog_QBom);
-            if (member != String) {
-                message.reply("o comando está incompleto!");
-            }
-            else {
-                const bannedEmbed = {
-                    color: "#F80000",
-                    title: `Usuário banido: ${member.user.tag}`,
-                    author: {
-                        name: `${message.author.tag}`,
-                        icon_url: `${message.author.avatarURL()}`,
+	data: new SlashCommandBuilder()
+		.setName('banir')
+		.setDescription('Bane o usuário mencionado.')
+        .addUserOption(user => 
+            user.setName('usuario')
+            .setDescription('Usuário que deseja banir.')
+            .setRequired(true))
+        .addStringOption(reason =>
+            reason.setName('razao')
+            .setDescription('Razao para banir o usuário')
+            .setRequired(false)),
+	async execute(interaction) {
+        const memberPerms = interaction.member.permissions;
+        if (memberPerms.has(Permissions.FLAGS.ADMINISTRATOR) || memberPerms.has(Permissions.FLAGS.BAN_MEMBERS)) {
+            const user = interaction.options.getUser('usuario');
+            const reason = interaction.options.getString('razao');
+            const { auditLog_QBom, serverQbomOficial_ID } = require('../../config.json');
+            const auditLog = interaction.client.channels.cache.get(auditLog_QBom);
+
+            const bannedEmbed = {
+                color: "#F80000",
+                title: `Usuário banido: ${user.tag}`,
+                author: {
+                    name: `${interaction.user.tag}`,
+                    icon_url: `${interaction.user.avatarURL()}`,
+                },
+                fields: [
+                    {
+                        name: "Motivo:",
+                        value: `${reason}.`,
                     },
-                    fields: [
-                        {
-                            name: "Motivo:",
-                            value: `${reason}.`,
-                        },
-                    ],
-                    timestamp: new Date(),
-                };
-                message.delete();
-                message.guild.members.ban(member, options = { days: 7, reason: reason});
-                auditLog.send({embed: bannedEmbed});
+                ],
+                timestamp: new Date(),
+            };
+            interaction.guild.members.ban(user);
+            if (interaction.guildId === serverQbomOficial_ID) {
+                auditLog.send({ embeds: [bannedEmbed] });
             }
-        }   
-        else (message.reply("você **não** tem permissão para usar este comando!"));
+            else interaction.reply({ content: `${user.tag} foi banido do servidor.`, ephemeral: true});
+        }
+        else interaction.reply({ content: 'Você **não** tem permissão para usar este comando.', ephemeral: true });
     }
 }

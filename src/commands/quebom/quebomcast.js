@@ -1,14 +1,18 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
 module.exports = {
-    name: "qbomcast",
-    aliases: ["qbcast","quebomcast"],
-    description: "Mostra o que é o QueBomCAST.",
-    execute(message) {
-        const qbomcastEmbed = {
+    data: new SlashCommandBuilder()
+    .setName('quebomcast')
+    .setDescription('Mostra o que é o QueBomCAST'),
+    async execute(interaction) {
+        const { queBomBOT_ID } = require('../../config.json');
+        const id = interaction.client.users.cache.get(queBomBOT_ID);
+        const qbCastEmbed = {
             color: "#df8edd",
             title: "QueBomCAST",
             description: "Informações sobre o QueBomCAST.",
             thumbnail: {
-                url: "https://i.imgur.com/zYPqM6S.jpg",
+                url: `${id.displayAvatarURL()}`,
             },
             fields: [
                 {
@@ -26,6 +30,6 @@ module.exports = {
             ],
             timestamp: new Date(),
         };
-        message.channel.send({embed: qbomcastEmbed});
+        interaction.reply({ embeds: [qbCastEmbed] });
     }
 }

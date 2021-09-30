@@ -1,28 +1,30 @@
 const puppeteer = require('puppeteer');
-module.exports = {
-    name: "currency",
-    aliases: ["cry"],
-    description: "Faz a conversão de algumas moedas para o Real.",
-    args: "{moeda} (quantidade)",
-    execute(message, args, client) {
-        //currencies infos
-        const { queBomBOT_ID } = require("../../config.json");
-        const ID = client.users.cache.get(queBomBOT_ID);
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
-        var input = args;
-        var nbr = input.find(nbr => nbr >= 1);
-        var nbrIndex = input.indexOf(nbr);
+module.exports = { 
+    data: new SlashCommandBuilder()
+    .setName('currency')
+    .setDescription('Faz a conversão de algumas moedas para o Real.')
+    .addStringOption(option => 
+        option.setName('moeda').setDescription('A moeda que deseja converter.').setRequired(true))
+    .addIntegerOption(option => 
+        option.setName('quantidade').setDescription('A quantidade que deseja converter.').setRequired(false)),
+    async execute(interaction) {      
+        const { queBomBOT_ID } = require('../../config.json');
+        const id = interaction.client.users.cache.get(queBomBOT_ID);
 
-        if (nbrIndex+1 == input.length) {
-            var currency = input.splice(nbrIndex-1, 1);
+        var wealth = interaction.options.getString("moeda");
+        var qnt = interaction.options.getInteger("quantidade");
+
+        if (!qnt) {
+            qnt = 1;
         }
-        else var currency = input.splice(nbrIndex+1);
+        else qnt = qnt;
 
         async function searchWealth(qnt, cry) {
             if (!qnt) { qnt = 1 }
             cry = cry.toString();
-            var loading = "<a:qbloading:885334786254708796>";
-            message.channel.send(`${loading} Pegando as informações ${loading}`).then(msg => msg.delete({timeout: 2400}));
+            await interaction.deferReply();
             var browser = await puppeteer.launch();
             var page = await browser.newPage();
             var wealthURL = `https://www.google.com.br/search?q=${qnt}+${cry}+para+real`;
@@ -35,12 +37,12 @@ module.exports = {
     
                 await browser.close();
                 
-                if (!nbr || nbr < 2) { // Default embed to show base wealth compared to Real
+                if (!qnt || qnt < 2) { // Default embed to show base wealth compared to Real
                     var currencyEmbed = {
                         color: '#df8edd',
                         author: {
-                            name: `${ID.username}`,
-                            icon_url: `${ID.displayAvatarURL()}`,
+                            name: `${id.username}`,
+                            icon_url: `${id.displayAvatarURL()}`,
                         },
                         fields: [
                             {
@@ -49,32 +51,29 @@ module.exports = {
                             },
                         ],
                     };
-                    message.channel.send({embed: currencyEmbed});
+                    await interaction.editReply({ embeds: [currencyEmbed] });
                 };
-                if (nbr >= 2) { // Final embed showing the currency and its wealth
+                if (qnt >= 2) { // Final embed showing the currency and its wealth
                     var currencyEmbed = {
                         color: '#df8edd',
                         title: `Conversor de Moedas (${cry.toUpperCase()} -> BRL :flag_br:)`,
                         author: {
-                            name: `${ID.username}`,
-                            icon_url: `${ID.displayAvatarURL()}`,
+                            name: `${id.username}`,
+                            icon_url: `${id.displayAvatarURL()}`,
                         },
                         fields: [
                             {
                                 name: `${cry.toUpperCase()} -> BRL :flag_br:`,
-                                value: `${nbr} -> ${resultado}`,
+                                value: `${qnt} -> ${resultado}`,
                             },
                         ],
                     };
-                    message.channel.send({embed: currencyEmbed});
+                    await interaction.editReply({ embeds: [currencyEmbed] });
                 }
             } catch (error) {
-                message.reply("Desculpe, mas não foi possível pegar o resultado.");
+                interaction.reply("Desculpe, mas não foi possível pegar o resultado.");
             }
         }
-        if (!input) {
-            message.reply("Você não me deu o que fazer.");            
-        }
-        else { searchWealth(nbr, currency); };
+        searchWealth(qnt, wealth);
     }
 }

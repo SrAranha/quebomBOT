@@ -1,30 +1,31 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { Permissions } = require('discord.js');
+
 module.exports = {
-    name: "poll",
-    aliases: ["enquete"],
-    description: "Cria uma votação com ✅ e ❌",
-    guildOnly: true,
-    modOnly: true,
-    args: "{Texto da Votação}",
-    execute(message, args) {
-        message.delete();
-        if (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("MANAGE_MESSAGES")) { 
-            const pollText = args.slice(0).join(" ");
-            const pollAuthor = message.author;
+	data: new SlashCommandBuilder()
+		.setName('poll')
+		.setDescription('Cria uma votação com ✅ e ❌')
+        .addStringOption(txt =>
+            txt.setName('texto')
+            .setDescription('O que será votado.')
+            .setRequired(true)),
+	async execute(interaction) {
+        const memberPerms = interaction.member.permissions;
+        if (memberPerms.has(Permissions.FLAGS.ADMINISTRATOR) || memberPerms.has(Permissions.FLAGS.MANAGE_MESSAGES)) {
+            const input = interaction.options.getString('texto');
             const pollEmbed = {
                 color: "#df8edd",
-                title: `${pollText}`,
+                title: `${input}`,
                 author: {
-                    name: `Criado por: ${pollAuthor.username}`,
-                    icon_url: `${pollAuthor.avatarURL()}`,
+                    name: `Criado por: ${interaction.user.tag}`,
+                    icon_url: `${interaction.user.avatarURL()}`,
                 },
                 timestamp: new Date(),
-            };
-            if (!pollText) {
-                message.channel.send("Por favor, coloque o que está em votação após o comando!")
             }
-            else if (
-            message.channel.send({embed: pollEmbed}).then(message => message.react("✅").then(() => message.react("❌"))));
+            const pollMsg = await interaction.reply({ embeds: [pollEmbed], fetchReply: true });
+		    pollMsg.react('✅');
+		    pollMsg.react('❌');
         }
-        else (message.reply("você **não** tem permissão para usar este comando!"));
+        else { interaction.reply({ content: "Você **não** tem permissão para usar este comando!", ephemeral: true }); }
     }
 }

@@ -1,16 +1,22 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
 module.exports = {
-    name: "help",
-    aliases: ["ajuda"],
-    description: "Mostra todos os comandos. Se especificado, mostra a descrição do tal.",
-    execute(message, args, client) {
-		const { queBomBOT_ID } = require("../../config.json");
-        const ID = client.users.cache.get(queBomBOT_ID);
+	data: new SlashCommandBuilder()
+		.setName('help')
+		.setDescription('Mostra todos os comandos. Se especificado, mostra a descrição do tal.')
+        .addStringOption(option =>
+            option.setName('comando')
+            .setDescription('Comando o qual deseja ver os detalhes.')
+            .setRequired(false)),
+	async execute(interaction) {
+        const { queBomBOT_ID } = require("../../config.json");
+        const id = interaction.client.users.cache.get(queBomBOT_ID);
         const helpEmbed = {
             color: "#df8edd",
             title: "Comandos do QueBomBOT",
-            description: "O prefixo para os comandos é `qb`",
+            description: "Agora o bot funciona normalmente com \`/{nome do comando}\`",
             thumbnail: {
-                url: `${ID.displayAvatarURL()}`
+                url: `${id.displayAvatarURL()}`
             },
             fields: [
                 {
@@ -38,11 +44,11 @@ module.exports = {
                     value: "Mostra todos os comandos. Se especificado, mostra a descrição do tal.",
                 },
                 {
-                    name: "Membro {Membro}",
+                    name: "Membro (Membro)",
                     value: "Mostra as redes sociais dos membros do QueBom.",
                 },
                 {
-                    name: "QBomCAST",
+                    name: "QueBomCAST",
                     value: "Mostra o que é o QueBomCAST.",
                 },
                 {
@@ -53,68 +59,34 @@ module.exports = {
             timestamp: new Date(),
         };
 
-        //Dynamical help command
-
-        if (!args[0]) {
-            message.channel.send({embed: helpEmbed});
+        const input = interaction.options.getString('comando');
+        if (!input) {
+            interaction.reply({ embeds: [helpEmbed] });            
         }
-        if (args[0]) {
-            const commandName = args[0].toLowerCase();
-            const command =
-                message.client.commands.get(commandName) ||
-                message.client.commands.find(
-                    (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
-                );
+        else {
+            const commandName = input.toLowerCase();
+            const command = interaction.client.commands.get(commandName);
+
             if (!command) {
-                return message.reply(`Não tem comando com o nome \`${commandName}\`.`);
-            }
-            if (command) {
-                var cmdUse = `qb${command.name}`;
-                if (command.args) {
-                    var cmdUse = `qb${command.name} ${command.args}`;
-                }
-                var cmdAliases = command.aliases;
-                if (!cmdAliases) {
-                    var cmdAliases = "Este comando não tem aliases/apelidos.";
-                }
-                var cmdMod = "Não, é um comando de uso público.";
-                if (command.modOnly) {
-                    var cmdMod = "Sim, é um comando exclusivo de moderadores."
-                }
-                var cmdArgs = "Não há argumentos adicionais para este comando.";
-                if (command.listArgs) {
-                    var cmdArgs = command.listArgs;
-                }
-                
+                interaction.reply({ content: `Desculpe, mas não tem um comando com o nome de ${commandName}` });
+            } else {
                 const cmdEmbed = {
                     color: "#df8edd",
-                    title: `Comando \`${command.name}\``,
-                    description: `**${command.description}**`,
+                    title: `Comando \`${command.data.name}\``,
+                    description: `**${command.data.description}**`,
                     thumbnail: {
-                        url: `${ID.displayAvatarURL()}`
+                        url: `${id.displayAvatarURL()}`
                     },
                     fields: [
                         {
-                            name: "Uso do comando:",
-                            value: `\`${cmdUse}\``,
-                        },
-                        {
-                            name: "Aliases/apelidos desse comando que pode ser trocado pelo nome:",
-                            value: `\`${cmdAliases}\``,
-                        },
-                        {
-                            name: "Possíveis argumentos adicionais do comando:",
-                            value: `\`${cmdArgs}\``,
-                        },
-                        {
-                            name: "Comando exclusivo para moderadores?",
-                            value: `\`${cmdMod}\``,
+                            name: "No momento não tem mais detalhes para mostrar para este comando",
+                            value: "Desculpe 😓",
                         },
                     ],
                     timestamp: new Date(),
                 }
-                message.channel.send({embed: cmdEmbed});
+                interaction.reply({ embeds: [cmdEmbed] });
             }
         }
-    }
-}
+	},
+};

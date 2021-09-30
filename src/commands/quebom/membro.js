@@ -1,22 +1,26 @@
-module.exports = {
-    name: "membro",
-    aliases: ["member"],
-    description: "Informações sobre os membros do QueBom",
-    args: "{membro}",
-    execute(message, args, client) {
-        message.delete();
-        const { queBomBOT_ID } = require("../../config.json");
-        const mInfo = require("./members.json");
-        const getMember = args[0];
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
-        if (!getMember) {
-            var ID = client.users.cache.get(queBomBOT_ID);
-            var memberList = {
+module.exports = {
+    data: new SlashCommandBuilder()
+    .setName('membro')
+    .setDescription('Informações sobre os membros do QueBom.')
+    .addStringOption(option =>
+        option.setName('membro')
+        .setDescription('Nome do membro que dejesa ver.')
+        .setRequired(false)),
+    async execute(interaction) {
+        const mInfo = require("./members.json");
+        const { queBomBOT_ID } = require('../../config.json');
+        const id = interaction.client.users.cache.get(queBomBOT_ID);
+        
+        var member = interaction.options.getString('membro');
+        if (!member) {
+            var memberListEmbed = {
                 color: "#df8edd",
                 title: "Lista dos membros do QueBom",
                 author: {
-                    name: `${ID.username}`,
-                    icon_url: `${ID.displayAvatarURL()}`
+                    name: `${id.username}`,
+                    icon_url: `${id.displayAvatarURL()}`
                 },
                 fields: [
                     {
@@ -26,17 +30,19 @@ module.exports = {
                 ],
                 timestamp: new Date(),
             };
-            message.channel.send({embed: memberList});
-        }
+            interaction.reply({ embeds: [memberListEmbed] });
+        } 
         else {
-            var member = getMember.toLowerCase();
+            member = member.toLowerCase();
+
             if (!mInfo.memberList.includes(member)) {
-                message.reply("Este não é um membro do QueBom!");
+            interaction.reply("Este não é um membro do QueBom.");            
             }
-            else {
-                var ID = client.users.cache.get(mInfo[member].id);
+        
+            if (mInfo.memberList.includes(member)) {
+                var ID = interaction.client.users.cache.get(mInfo[member].id);
                 if (!ID) { 
-                    var ID = client.users.cache.get(queBomBOT_ID);
+                    var ID = interaction.client.users.cache.get(queBomBOT_ID);
                 };
                 var memberTwitch = mInfo[member].twitch;
                 if (!memberTwitch) {
@@ -73,8 +79,8 @@ module.exports = {
                     ],
                     timestamp: new Date(),
                 };
-                message.channel.send({embed: memberEmbed});
+                interaction.reply({ embeds: [memberEmbed] });
             }
-        }
+        }   
     }
 }
