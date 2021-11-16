@@ -1,7 +1,7 @@
 // ignore config.json
 config.json
-// ignore all .html files
-*.html
+// ignore tinfo.json
+tinfo.json
 // ignore code-workspace
 *.code-workspace
 // ignore testes (folder)
