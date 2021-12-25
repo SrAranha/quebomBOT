@@ -11,8 +11,8 @@ module.exports = {
         subcmd.setName('lista')
         .setDescription('Lista com os áudios disponíveis.'))
     .addSubcommand(subcmd =>
-        subcmd.setName('nome_audio')
-        .setDescription('Nome do áudio.')
+        subcmd.setName('audio')
+        .setDescription('Meme em áudio. (Se deixar em branco, o bot tocará aleatoriamente.)')
         .addStringOption(meme =>
             meme.setName('nome_audio')
             .setDescription('Nome do áudio.')
@@ -54,7 +54,7 @@ module.exports = {
             interaction.reply({ embeds:[memesEmbed] });
         }
 
-        if (interaction.options.getSubcommand() === 'nome_audio') {
+        if (interaction.options.getSubcommand() === 'audio') {
             const channel = interaction.member.voice;
             const connection = voip.joinVoiceChannel({ 
                 channelId: channel.channelId,
@@ -80,7 +80,7 @@ module.exports = {
                     var random = Math.floor(Math.random() * memesLength);
                     randomAudio = memesFolder[random];
 
-                var resource = voip.createAudioResource(`${soundsFolder}/${randomAudio}`);
+                var resource = voip.createAudioResource(`${soundsFolder}/${randomAudio}.mp3`);
                 player.play(resource);
                 connection.subscribe(player);
                 interaction.reply({ content: 'É sobre isso...'});
