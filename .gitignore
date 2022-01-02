@@ -8,5 +8,3 @@ frases.json
 testes
 // ignore node_modules (folder)
 node_modules
-// ignore assets (folder)
-assets
