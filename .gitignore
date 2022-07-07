@@ -1,6 +1,5 @@
 // ignore json's
 config.json
-tinfo.json
 // ignore code-workspace
 *.code-workspace
 // ignore testes (folder)
