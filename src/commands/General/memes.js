@@ -67,7 +67,8 @@ module.exports = {
                 if (audio.endsWith('.mp3')) {
                     audio = audio.slice(0,-4);
                 }
-                var resource = voip.createAudioResource(`${soundsFolder}/${audio}.mp3`);
+                let resource = voip.createAudioResource(`${soundsFolder}/${audio}.mp3`, {inlineVolume: true});
+                resource.volume.setVolume(0.3);
                 player.play(resource);
                 connection.subscribe(player);
                 interaction.reply({ content: 'É sobre isso...'});
