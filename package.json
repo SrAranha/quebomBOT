@@ -30,7 +30,7 @@
     "google-tts-api": "^2.0.2",
     "libsodium-wrappers": "^0.7.9",
     "node-fetch": "^2.6.5",
-    "puppeteer": "^10.4.0",
+    "puppeteer": "^15.3.1",
     "set-value": "^4.1.0"
   }
 }
