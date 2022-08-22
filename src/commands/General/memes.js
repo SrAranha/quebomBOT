@@ -63,29 +63,22 @@ module.exports = {
             })
             var audio = interaction.options.getString('nome_audio');
             const player = voip.createAudioPlayer();
-            if (audio) {
-                if (audio.endsWith('.mp3')) {
-                    audio = audio.slice(0,-4);
+            if (memesFolder.includes(audio) || !audio ) { // Playing audio
+                if (!audio) {
+                    var memesLength = memesFolder.length;
+                    
+                    let randomAudio; 
+                    var random = Math.floor(Math.random() * memesLength);
+                    audio = memesFolder[random];
                 }
                 let resource = voip.createAudioResource(`${soundsFolder}/${audio}.mp3`, {inlineVolume: true});
                 resource.volume.setVolume(0.3);
                 player.play(resource);
                 connection.subscribe(player);
-                interaction.reply({ content: 'É sobre isso...'});
-                interaction.deleteReply();
+                interaction.reply({ content: `Tocando \`${audio}\``, ephemeral: true });
             }
             else {
-                var memesLength = memesFolder.length;
-
-                let randomAudio; 
-                    var random = Math.floor(Math.random() * memesLength);
-                    randomAudio = memesFolder[random];
-
-                var resource = voip.createAudioResource(`${soundsFolder}/${randomAudio}.mp3`);
-                player.play(resource);
-                connection.subscribe(player);
-                interaction.reply({ content: 'É sobre isso...'});
-                interaction.deleteReply();
+                interaction.reply({ content: 'Não há um áudio com esse nome', ephemeral: true });
             }
         }
     }
