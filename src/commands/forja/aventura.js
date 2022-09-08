@@ -121,7 +121,8 @@ module.exports = {
                         components: [buttonsPlaces] })
                     break;
                 default:
-                    const resource = voice.createAudioResource(`${songsFolder}/${i.customId}.mp3`);
+                    const resource = voice.createAudioResource(`${songsFolder}/${i.customId}.mp3`, {inlineVolume: true});
+                    resource.volume.setVolume(0.3);
                     player.play(resource);
                     connection.subscribe(player);
                     interaction.editReply({ content: `Tocando \`${i.customId}\`` });
