@@ -1,7 +1,7 @@
-const voip = require('@discordjs/voice');
-const fs = require('fs');
-const path = require('path');
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const voip = require('@discordjs/voice');
+const path = require('path');
+const fs = require('fs');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -63,11 +63,10 @@ module.exports = {
             })
             var audio = interaction.options.getString('nome_audio');
             const player = voip.createAudioPlayer();
-            if (memesFolder.includes(audio) || !audio ) { // Playing audio
+            if (memesFolder.includes(audio) || !audio) { // Playing audio
                 if (!audio) {
                     var memesLength = memesFolder.length;
                     
-                    let randomAudio; 
                     var random = Math.floor(Math.random() * memesLength);
                     audio = memesFolder[random];
                 }
