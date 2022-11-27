@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('dados')
-		.setDescription('Role um ou mais dados!')
+		.setDescription('Faça a sua rolagem dados!')
         .addStringOption(dices =>
             dices.setName('dados')
             .setDescription('Qual e quantos dados serão rolados.')
