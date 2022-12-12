@@ -6,89 +6,78 @@ module.exports = {
 		.setDescription('Faça a sua rolagem dados!')
         .addStringOption(dices =>
             dices.setName('dados')
-            .setDescription('Qual e quantos dados serão rolados.')
+            .setDescription('Qual e quantos dados serão rolados com espaço entre eles.')
             .setRequired(true)),
 	async execute(interaction) {
 
         const inputDices = interaction.options.getString('dados');
-        const whereD = inputDices.indexOf('d');
-        function separateRollMod(input) {
-            if (input.includes('+')) {
-                whereP = input.indexOf('+');
-                withoutMod = input.slice(0, whereP);
-                isolatedMod = input.slice(whereP);
-                array = [withoutMod, isolatedMod]
-                return array;
+
+        function rollDices(input) {
+            let results = [];
+            const whereD = inputDices.indexOf('d');
+            const faces = input.slice(whereD + 1);
+            for (let roll = 0; roll < input.slice(0, whereD); roll++) {
+                const randomResult = Math.floor(Math.random() * faces) + 1;
+                results.push(randomResult);
             }
-            if (input.includes('-')) {
-                whereM = input.indexOf('-');
-                withoutMod = input.slice(0, whereM);
-                isolatedMod = input.slice(whereM);
-                array = [withoutMod, isolatedMod]
-                return array;
-            }
+            return results;
         }
 
-        function rollDice(input) {
-            if (input.includes('+') || input.includes('-')) {
-                var withoutMod = separateRollMod(input)[0];
-            } else {
-                var withoutMod = input;
-            }
-            const faces = withoutMod.slice(whereD + 1);
-            const randomResult = Math.floor(Math.random() * faces) + 1;
-            return randomResult;
-        }
-        
-        function finalDice(input) {
-            if (input.includes('+') || input.includes('-')) {
-                var withoutMod = separateRollMod(input)[0];
-                var isolatedMod = separateRollMod(input)[1];
-            } else {
-                var withoutMod = input;
-            }
-            if (input.startsWith('d')) {
-                var timesToRoll = 1;
-            } else {
-                var timesToRoll = withoutMod.slice(0, whereD);
-            }
-            
-            var rolls = [];
-            for (let i = 0; i < parseInt(timesToRoll); i++) {
-                var rollResult = rollDice(input);
-                rolls.push(rollResult);
-            }
-            var sumDice = 0;
-            for (let index = 0; index < rolls.length; index++) {
-                const roll = rolls[index];
-                var sumDice = sumDice + roll;
-            }
-            var response = [rolls.sort(), input];
-            if (isolatedMod) {
-                if (isolatedMod.startsWith('-')) {
-                    var index = isolatedMod.indexOf('-')
-                    isolatedMod = isolatedMod.slice(index + 1);
-                    var moddedDice = sumDice - parseInt(isolatedMod);
-                    response.push(moddedDice);
-                    return response
+        function sumRolls(input) {
+            let rolls = [];
+            let sum = 0;
+            input = input.split(' ');
+            console.log(input);
+            for (let i = 0; i < input.length; i++) {
+                // Rolling the dices
+                if (input[i].includes('d')) {
+                    let rolledDices = rollDices(input[i])
+                    for (let j = 0; j < rolledDices.length; j++) {
+                        rolls.push(rolledDices[j]);
+                    }
                 }
-                if (isolatedMod.startsWith('+')) {
-                    var index = isolatedMod.indexOf('+')
-                    isolatedMod = isolatedMod.slice(index + 1);
-                    var moddedDice = sumDice + parseInt(isolatedMod);
-                    response.push(moddedDice);
-                    return response
+                // The rest
+                else {
+                    console.log(input[i]);
+                    if (!isNaN(input[i])) {
+                        rolls.push(parseInt(input[i]));
+                    }
+                    else rolls.push(input[i]);
                 }
             }
-            else {
-                response.push(sumDice);
-                return response;
+            console.log(rolls);
+            let minus = false;
+            for (let i = 0; i < rolls.length; i++) {
+                console.log(minus);
+                if (isNaN(rolls[i]) && rolls[i] == '-') {
+                    console.log(`oldRolls=>${rolls}`);
+                    minus = true;
+                    rolls.splice(i, 1);
+                    console.log(`newRolls=>${rolls}`);
+                }
+                if (isNaN(rolls[i]) && rolls[i] == '+') {
+                    console.log(`oldRolls=>${rolls}`);
+                    minus = false;
+                    rolls.splice(i, 1);
+                    console.log(`newRolls=>${rolls}`);
+                }
+                if (!isNaN(rolls[i])) {
+                    if (minus == false) {
+                        console.log(`sum=>${sum} + ${rolls[i]}`);
+                        sum += rolls[i];
+                    }
+                    else if (minus == true) {
+                        console.log(`sum=>${sum} - ${rolls[i]}`);
+                        sum -= rolls[i];
+                    }
+                }
             }
+            return [ sum, rolls ];
         }
 
         if (inputDices.includes('d')) {
-            var funcao = finalDice(inputDices);
-            var content = `> **${funcao[1]}:** ${funcao[2]} \n \`${funcao[0]}\`  `;
+            var funcao = sumRolls(inputDices);
+            var content = `> **${inputDices}:** ${funcao[0]} \n \`${funcao[1]}\``;
             interaction.reply({ content: content });
         }
         else {
