@@ -27,7 +27,6 @@ module.exports = {
             let rolls = [];
             let sum = 0;
             input = input.split(' ');
-            console.log(input);
             for (let i = 0; i < input.length; i++) {
                 // Rolling the dices
                 if (input[i].includes('d')) {
@@ -38,36 +37,27 @@ module.exports = {
                 }
                 // The rest
                 else {
-                    console.log(input[i]);
                     if (!isNaN(input[i])) {
                         rolls.push(parseInt(input[i]));
                     }
                     else rolls.push(input[i]);
                 }
             }
-            console.log(rolls);
             let minus = false;
             for (let i = 0; i < rolls.length; i++) {
-                console.log(minus);
                 if (isNaN(rolls[i]) && rolls[i] == '-') {
-                    console.log(`oldRolls=>${rolls}`);
                     minus = true;
                     rolls.splice(i, 1);
-                    console.log(`newRolls=>${rolls}`);
                 }
                 if (isNaN(rolls[i]) && rolls[i] == '+') {
-                    console.log(`oldRolls=>${rolls}`);
                     minus = false;
                     rolls.splice(i, 1);
-                    console.log(`newRolls=>${rolls}`);
                 }
                 if (!isNaN(rolls[i])) {
                     if (minus == false) {
-                        console.log(`sum=>${sum} + ${rolls[i]}`);
                         sum += rolls[i];
                     }
                     else if (minus == true) {
-                        console.log(`sum=>${sum} - ${rolls[i]}`);
                         sum -= rolls[i];
                     }
                 }
