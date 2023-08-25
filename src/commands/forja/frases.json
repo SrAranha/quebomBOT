@@ -1,52 +1,489 @@
 {
-    "frasesAmount": 10,
-    "0": {
-        "frase": "FRASE PICA",
-        "author": "AUTOR DE PICA",
-        "date": 69420
-    },
-    "1": {
-        "frase": "0800 ARANHA , a batata mais GOSTOSA dessa live!"
-    },
-    "2": {
-        "frase": "Já dizia Nietzsche...",
-        "author": "Furioso, Texugo",
-        "date": 2020
-    },
-    "3": {
-        "frase": "A Kett é unicórnio mais sexy desse planeta!"
-    },
-    "4": {
-        "frase": "É PRA FUDER, NÃO MINERAR PETRÓLEO!",
-        "author": "Xavier, Alan",
-        "date": 2020
-    },
-    "5": {
-        "frase": "Mama aqui o Glub Glub"
-    },
-    "6": {
-        "frase": "Melhor um furo na sua camisinha, que uma camisinha no teu furo.",
-        "author": "Bozz",
-        "date": 2020
-    },
-    "7": {
-        "frase": "EU NÃO SOU FURRY!",
-        "author": "Maffy 'Máfia'",
-        "date": 2020
-    },
-    "8": {
-        "frase": "LARGA DO MEUS OVO CUSÃO",
-        "author": "Xavier, Alan",
-        "date": 2020
-    },
-    "9": {
-        "frase": "2 bozz quer dizer que posso dar ban no bozz 2 vezes?",
-        "author": "Furioso, Texugo",
-        "date": 2020
-    },
-    "10": {
-        "frase": "Existem 3 coisas que não se discute: Melhor sistema de rpg, religião e fetiches",
-        "author": "Furioso, Texugo",
-        "date": 2020
-    }
+  "0": {
+    "frase": "FRASE PICA",
+    "author": "AUTOR DE PICA",
+    "date": 69.420
+  },
+  "1": {
+    "frase": "0800 ARANHA , a batata mais GOSTOSA dessa live!"
+  },
+  "2": {
+    "frase": "Já dizia Nietzsche...",
+    "author": "Furioso, Texugo",
+    "date": 2020
+  },
+  "3": {
+    "frase": "A Kett é unicórnio mais sexy desse planeta!"
+  },
+  "4": {
+    "frase": "É PRA FUDER, NÃO MINERAR PETRÓLEO!",
+    "author": "Xavier, Alan",
+    "date": 2020
+  },
+  "5": {
+    "frase": "Mama aqui o Glub Glub"
+  },
+  "6": {
+    "frase": "Melhor um furo na sua camisinha, que uma camisinha no teu furo.",
+    "author": "Bozz",
+    "date": 2020
+  },
+  "7": {
+    "frase": "EU NÃO SOU FURRY!",
+    "author": "Maffy 'Máfia'",
+    "date": 2020
+  },
+  "8": {
+    "frase": "LARGA DO MEUS OVO CUSÃO",
+    "author": "Xavier, Alan",
+    "date": 2020
+  },
+  "9": {
+    "frase": "2 bozz quer dizer que posso dar ban no bozz 2 vezes?",
+    "author": "Furioso, Texugo",
+    "date": 2020
+  },
+  "10": {
+    "frase": "Existem 3 coisas que não se discute: Melhor sistema de rpg, religião e fetiches",
+    "author": "Furioso, Texugo",
+    "date": 2020
+  },
+  "11": {
+    "frase": "Pô mano, tua mina mó gata, você mó trouxa",
+    "author": "Dino",
+    "date": 2020
+  },
+  "12": {
+    "frase": "Nem tô entendendo nada, só tô rindo",
+    "author": "Maffy 'Máfia'",
+    "date": 2020
+  },
+  "13": {
+    "frase": "Melhor hospício",
+    "author": "Maffy 'Máfia'",
+    "date": 2020
+  },
+  "14": {
+    "frase": "Olha todos esses furry fedido que vou chutar",
+    "author": "Maffy 'Máfia'",
+    "date": 2020
+  },
+  "15": {
+    "frase": "Não penso nada mal de vocês, só não penso tão bem assim",
+    "author": "Xavier, Alan",
+    "date": 2020
+  },
+  "16": {
+    "frase": "Não fala merda que presta",
+    "author": "Derp",
+    "date": 2020
+  },
+  "17": {
+    "frase": "Eu tô comendo isso tudo, por que que eu tô cagando mole!?",
+    "author": "Furioso, Texugo",
+    "date": 2020
+  },
+  "18": {
+    "frase": "UM TROTE NA GARGANTA, UM COICE NA TRISTEZA",
+    "author": "CACHAÇA CAVALO"
+  },
+  "19": {
+    "frase": "Bebida alcoólica é igual a remédio cara, vc n bebe pelo gosto e sim pelo efeito",
+    "author": "Furioso, Texugo",
+    "date": 2020
+  },
+  "20": {
+    "frase": "Eu sou santo só bebo coisa batizada",
+    "author": "Furioso, Texugo",
+    "date": 2020
+  },
+  "21": {
+    "frase": "Passando vergonha online desde 2011",
+    "author": "Melvin",
+    "date": 2020
+  },
+  "22": {
+    "frase": "Se vc jogar um saco de merda na menina e ela continuar contigo, case com ela",
+    "author": "Amigo do Alan",
+    "date": 2020
+  },
+  "23": {
+    "frase": "Tu só tinha um serviço, e falhaste",
+    "author": "Mundo_do_louco",
+    "date": 2020
+  },
+  "24": {
+    "frase": "Queimavera, ouforno, inferno e verão",
+    "author": "Vitorio",
+    "date": 2020
+  },
+  "25": {
+    "frase": "MAC LIXO",
+    "author": "landomlindoso",
+    "date": 2020
+  },
+  "26": {
+    "frase": "Que lindo, faz um peidido!",
+    "author": "Ailtonxp",
+    "date": 2020
+  },
+  "27": {
+    "frase": "Só queria falar que o Renan calado é um poeta!",
+    "author": "Ailtonxp",
+    "date": 2020
+  },
+  "28": {
+    "frase": "Oh Deusa, cola aí",
+    "author": "Bozz",
+    "date": 2020
+  },
+  "29": {
+    "frase": "Bozz e Josino numa barganha, a 80km/h, quem ganha??",
+    "author": "Aranha",
+    "date": 2020
+  },
+  "30": {
+    "frase": "Se eu tivesse um quarto amigo... (Bozz cai)",
+    "author": "Bozz",
+    "date": 2020
+  },
+  "31": {
+    "frase": "Eles quebraram meu esquema",
+    "author": "Xavier, Alan",
+    "date": 2020
+  },
+  "32": {
+    "frase": "draw_joao inventou o ctrl render",
+    "author": "Muniro",
+    "date": 2020
+  },
+  "33": {
+    "frase": "Alan é besta, não pode ver uma teta que já fica todo risonho.",
+    "author": "Furioso, Texugo",
+    "date": 2020
+  },
+  "34": {
+    "frase": "A Dora é o boruto da Tomb Raider",
+    "author": "Furioso, Texugo",
+    "date": 2020
+  },
+  "35": {
+    "frase": "depois de cobra kai vem aí PAREDE KAI",
+    "author": "Muniro",
+    "date": 2020
+  },
+  "36": {
+    "frase": "As minas usam bomba de galinha pra aumentar o peito?!",
+    "author": "Aranha",
+    "date": 2020
+  },
+  "37": {
+    "frase": "cagar é tipo se apaixonar então?",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "38": {
+    "frase": "Na faculdade ou vc faz um trabalho bom ou vc tá vivo, os 2 não dá!",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "39": {
+    "frase": "Não tem como banir o Alan da stream dele, eu já tentei",
+    "author": "Furioso, Texugo",
+    "date": 2021
+  },
+  "40": {
+    "frase": "Você não pode banir o streamer",
+    "author": "Twitch para o Texugo",
+    "date": 2021
+  },
+  "41": {
+    "frase": "Mano, porque que é bolinho de chuva, se num é de água?",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "42": {
+    "frase": "Sonio The Hotdog",
+    "author": "landomlindoso",
+    "date": 2021
+  },
+  "43": {
+    "frase": "Cu pisca e o pau levita",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "44": {
+    "frase": "Vontade de dar um beijo grego em vc, seu lindinho",
+    "author": "Shamau",
+    "date": 2021
+  },
+  "45": {
+    "frase": "Já era ahahahaha aqui o esquema é: falou, entrou!",
+    "author": "IlustraGra",
+    "date": 2021
+  },
+  "46": {
+    "frase": "Nossa depois dessa eu vou enfiar uma torneira no meu cu e cagar abrindo registro",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "47": {
+    "frase": "ALAN ALAN, se uma lança te cura 1d10 de vida, ela é uma Ambulança?",
+    "author": "Mundo_do_louco",
+    "date": 2021
+  },
+  "48": {
+    "frase": "Sim mano faço parte de 1% da população que tem pai",
+    "author": "Tarenqua",
+    "date": 2021
+  },
+  "49": {
+    "frase": "Aqui nóis num é bombeiro, mas nóis dá conta!",
+    "author": "Aranha",
+    "date": 2021
+  },
+  "50": {
+    "frase": "Então esse é o famoso amor de KINGU?",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "51": {
+    "frase": "13 anos é a idade q a gente usa o pc com uma mão só né",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "52": {
+    "frase": "Moisés abre o mar, o Aranha abre pernas",
+    "author": "Xavier, Alan",
+    "date": 2021
+  },
+  "53": {
+    "frase": "Olha o Desenho_John aí!",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "54": {
+    "frase": "Se a pessoa não aproveita todo o yogurte, como é que ela vai aproveitar todas as oportunidades?",
+    "author": "liminhag0d",
+    "date": 2021
+  },
+  "55": {
+    "frase": "É muita gente pra um buraco apertado!",
+    "author": "liminhag0d",
+    "date": 2021
+  },
+  "56": {
+    "frase": "O problema é se me levar pro tronco e eu levar troncada na cara!",
+    "author": "liminhag0d",
+    "date": 2021
+  },
+  "57": {
+    "frase": "'vc pinta com meu pinto?' 'SIM, SOCA'",
+    "author": "Xavier, Alan",
+    "date": 2021
+  },
+  "58": {
+    "frase": "Issaê, Gra. Pune a menina com prazer!",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "59": {
+    "frase": "Pra namorar parcero, tem que dar o anel",
+    "author": "landomlindoso",
+    "date": 2021
+  },
+  "60": {
+    "frase": "O CARA VIU BOB SPONJA ENQUANDO DAVA O BUMBUM",
+    "author": "landomlindoso",
+    "date": 2021
+  },
+  "61": {
+    "frase": "O Homem é puro mas a ilustraGRA corrompe",
+    "author": "landomlindoso",
+    "date": 2021
+  },
+  "62": {
+    "frase": "Bodas de poeira, 3 min de casado",
+    "author": "Fejones",
+    "date": 2021
+  },
+  "63": {
+    "frase": "Agora tá uma salsicha mais palpável!",
+    "author": "Regina, Jesga",
+    "date": 2021
+  },
+  "64": {
+    "frase": "Fim do tutorial!",
+    "author": "Maitu",
+    "date": 2021
+  },
+  "65": {
+    "frase": "Alan por quê vc nunca usa simetria? por acaso ela tá socada no teu cu?",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "66": {
+    "frase": "Tá vendo aquela lua que brilha lá no céu, se você me pedir eu vou buscar só pra socar no seu cu",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "67": {
+    "frase": "Aqui não tem bela, recatada e do lar. Somos velhos, cringes e da 5ª série",
+    "author": "IlustraGra",
+    "date": 2021
+  },
+  "68": {
+    "frase": "Técnico em trouxice é mto edge",
+    "author": "IlustraGra",
+    "date": 2021
+  },
+  "69": {
+    "frase": "Posso sim, filho da puta",
+    "author": "Texugo para Twitch",
+    "date": 2021
+  },
+  "70": {
+    "frase": "Falou bonito, comeu o dicionário?",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "71": {
+    "frase": "O frio que reside em mim, saúda o frio que reside em você!",
+    "author": "IlustraGra",
+    "date": 2021
+  },
+  "72": {
+    "frase": "Nada que uma lambida no cu não resolva!",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "73": {
+    "frase": "Lembrar é uma coisa difícil",
+    "author": "Aranha"
+  },
+  "74": {
+    "frase": "tô pior que ontem e melhor que amanhã",
+    "author": "Furioso, Texugo",
+    "date": 2021
+  },
+  "75": {
+    "frase": "Era melhor quando o Shamau só falava de cu",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "76": {
+    "frase": "Homem gostoso cheiroso inteligente talentoso é igual melancia, não dá pra comer sozinha. Divido o @MunirO_",
+    "author": "jessicaramos0",
+    "date": 2021
+  },
+  "77": {
+    "frase": "A gente começa bão pra terminar incrível",
+    "author": "Xavier, Alan",
+    "date": 2021
+  },
+  "78": {
+    "frase": "AOBA",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "79": {
+    "frase": "É de longe que se chega perto!",
+    "author": "Ursoblanco",
+    "date": 2021
+  },
+  "80": {
+    "frase": "Mas é claaaaaaaaaro...",
+    "author": "Xavier, Alan",
+    "date": 2021
+  },
+  "81": {
+    "frase": "Mano, dá o cu mas não dá dessas!",
+    "author": "Alan para Muniro",
+    "date": 2021
+  },
+  "82": {
+    "frase": "Ai Alan, tamo no seu aniversário e você não sabe o mês?!",
+    "author": "Regina, Jesga",
+    "date": 2021
+  },
+  "83": {
+    "frase": "Porque o seu peido não tem cheiro de humano",
+    "author": "Xavier, Alan",
+    "date": 2021
+  },
+  "84": {
+    "frase": "A girafa é um ser humano de 4!",
+    "author": "IlustraGra",
+    "date": 2021
+  },
+  "85": {
+    "frase": "Se Zeus fez é pq cabe!",
+    "author": "soueuzeus",
+    "date": 2021
+  },
+  "86": {
+    "frase": "Nossa que animação linda, vontade de mamar o animador... Alan, você vai ser animador né?!",
+    "author": "Maitu (*190)",
+    "date": 2021
+  },
+  "87": {
+    "frase": "Chupa, mas não eu!",
+    "author": "IlustraGra",
+    "date": 2021
+  },
+  "88": {
+    "frase": "Alan - as músicas tão boas // Texugo - LINKIN PARK VERSÃO SAMBA",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "89": {
+    "frase": "Tô com mais sede do que um caracol andando no deserto",
+    "author": "Monstro dos Power Rangers"
+  },
+  "90": {
+    "frase": "Proporção de cu é simetria!",
+    "author": "Regina, Jesga",
+    "date": 2021
+  },
+  "91": {
+    "frase": "Toda amizade em Power Rangers é uma amizade colorida!",
+    "author": "LagoGameZ",
+    "date": 2021
+  },
+  "92": {
+    "frase": "Eu não tô crendo no que os meus olhos estão ouvindo!",
+    "author": "soueuzeus",
+    "date": 2021
+  },
+  "93": {
+    "frase": "colocar aquilo tudo, é grande demais",
+    "author": "Xavier, Alan",
+    "date": 2021
+  },
+  "94": {
+    "frase": "Sa fa duru san",
+    "author": "IlustraAb",
+    "date": 2021
+  },
+  "95": {
+    "frase": "QUE?",
+    "author": "Alan para Muniro",
+    "date": 2021
+  },
+  "96": {
+    "frase": "Se a bola é grande demais pra sua boca, ela não é sua!",
+    "author": "Wisdom Dog",
+    "date": 2015
+  },
+  "97": {
+    "frase": "Drento",
+    "author": "Berline, Barbara",
+    "date": 2021
+  },
+  "98": {
+    "frase": "Pera ae que vou colocar a calça porquê tá frio e eu tô só de calcinha",
+    "author": "Muniro",
+    "date": 2021
+  },
+  "frasesAmount": 98
 }
