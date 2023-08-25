@@ -7,11 +7,11 @@ module.exports = {
     data: new SlashCommandBuilder()
     .setName('memes')
     .setDescription('Comando de meme.')
-    .addSubcommand(subcmd =>
-        subcmd.setName('lista')
+    .addSubcommand(list =>
+        list.setName('lista')
         .setDescription('Lista com os áudios disponíveis.'))
-    .addSubcommand(subcmd =>
-        subcmd.setName('audio')
+    .addSubcommand(audio =>
+        audio.setName('audio')
         .setDescription('Meme em áudio. (Se deixar em branco, o bot tocará aleatoriamente.)')
         .addStringOption(meme =>
             meme.setName('nome_audio')
